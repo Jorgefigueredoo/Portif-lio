@@ -7,7 +7,7 @@ import Image from "next/image"
 export function Projects() {
   const projects = [
     {
-      title: "Conecta HUb - Plataforma para distribuição de sementes",
+      title: "Conecta Hub - Plataforma para distribuição de sementes",
       description:
         "O ConectaHub é uma API RESTful robusta desenvolvida para modernizar e centralizar a distribuição de sementes agrícolas. O sistema atua como um hub logístico que conecta fornecedores, agricultores e operadores, solucionando o desafio de gerir estoques críticos e rastrear entregas em tempo real.",
       image: "/images/ConectaHub.png",
