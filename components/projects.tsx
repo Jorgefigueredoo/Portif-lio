@@ -7,12 +7,12 @@ import Image from "next/image"
 export function Projects() {
   const projects = [
     {
-      title: "Ecoando - Plataforma de Educação Ambiental",
+      title: "Conecta HUb - Plataforma para distribuição de sementes",
       description:
-        "Plataforma digital voltada à educação ambiental e conscientização ecológica. Conecta pessoas, projetos e informações sobre meio ambiente de forma acessível e interativa.",
-      image: "/images/ecoando-logo.png",
-      technologies: ["Design", "Figma", "UX/UI", "Prototipagem"],
-      liveUrl: "https://www.figma.com/proto/YTe27SARND04dd8dVWF6HH?node-id=0-1&t=VJjRbg5UMc5FV7qk-6",
+        "O ConectaHub é uma API RESTful robusta desenvolvida para modernizar e centralizar a distribuição de sementes agrícolas. O sistema atua como um hub logístico que conecta fornecedores, agricultores e operadores, solucionando o desafio de gerir estoques críticos e rastrear entregas em tempo real.",
+      image: "/images/ConectaHub.png",
+      technologies: ["Java", "Spring Boot", "API REST", "Vs Code", "Git Hub"],
+      liveUrl: "https://github.com/Jorgefigueredoo/Back-End-ConectaHub.git",
     },
     {
       title: "Calculadora em Python",
