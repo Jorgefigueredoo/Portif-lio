@@ -99,7 +99,7 @@ export function Contact() {
                   <div className="w-2 h-2 bg-blue-400 dark:bg-blue-400 rounded-full animate-pulse"></div>
                   <span className="text-sm font-medium text-gray-200 dark:text-gray-200">Status</span>
                 </div>
-                <p className="text-sm text-gray-300 dark:text-gray-300">Disponível para oportunidades de estágio</p>
+                <p className="text-sm text-gray-300 dark:text-gray-300">Disponível para oportunidades de trabalho</p>
               </div>
             </CardContent>
           </Card>
