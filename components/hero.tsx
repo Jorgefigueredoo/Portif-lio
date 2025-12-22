@@ -29,7 +29,7 @@ export function Hero() {
             <div className="flex items-center gap-2 mb-6">
               <div className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full animate-pulse"></div>
               <span className="text-sm text-blue-400 dark:text-blue-400 font-medium bg-gray-800/50 dark:bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700/50">
-                Disponível para estágio
+                Disponível para oportunidades de trabalho
               </span>
             </div>
 
