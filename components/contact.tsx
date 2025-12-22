@@ -13,7 +13,7 @@ export function Contact() {
           <h2 className="text-3xl font-bold text-gray-100 dark:text-gray-100 mb-4">Vamos Conversar</h2>
           <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 dark:from-blue-500 dark:to-blue-400 mx-auto mb-6"></div>
           <p className="text-lg text-gray-300 dark:text-gray-300 max-w-2xl mx-auto">
-            Estou em busca de oportunidades de estágio na área de desenvolvimento. Entre em contato para conversarmos
+            Estou em busca de oportunidades na área de desenvolvimento. Entre em contato para conversarmos
             sobre como posso contribuir com sua equipe.
           </p>
         </div>
