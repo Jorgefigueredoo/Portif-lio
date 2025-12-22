@@ -30,6 +30,14 @@ export function Projects() {
       technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       liveUrl: "#",
     },
+     {
+      title: "Landing Page Fisioterapeuta",
+      description:
+        "Landing page desenvolvida para um fisioterapeuta, com foco em apresentar serviços, especialidades e facilitar o contato com pacientes. O projeto priorizou um design responsivo, navegação intuitiva e uma comunicação clara, visando melhorar a presença digital e a captação de novos atendimentos.",
+      image: "/images/fisioterapiaLD.png",
+      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      liveUrl: "https://fisioterapiapedrosantos.vercel.app/",
+    },
   ]
 
   return (

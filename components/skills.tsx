@@ -2,15 +2,15 @@ export function Skills() {
   const skillCategories = [
     {
       title: "Linguagens de Programação",
-      skills: ["Python", "JavaScript", "Java", "PHP", "HTML/CSS"],
+      skills: ["Java","Python", "HTML/CSS/JavaScript", "TypeScript"],
     },
     {
       title: "Ferramentas & Tecnologias",
-      skills: ["Git/GitHub", "Google Colab", "Figma", "ChatGPT/IA", "VS Code"],
+      skills: ["Git/GitHub", "Google Colab", "Figma", "ChatGPT/IA", "VS Code", "v0", "Lovable"],
     },
     {
       title: "Frameworks & Bibliotecas",
-      skills: ["React", "Next.js", "Java c Spring Boot", "Python", "Node.js"],
+      skills: ["React", "Next.js", "Spring Boot", "API REST"],
     },
     {
       title: "Soft Skills",

@@ -43,7 +43,7 @@ export function Footer() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-blue-100 text-sm">© 2025 Jorge Antonio. Todos os direitos reservados.</p>
+            <p className="text-blue-100 text-sm">© 2026 Jorge Antonio. Todos os direitos reservados.</p>
             <div className="flex gap-6 text-sm text-gray-400 mt-4 md:mt-0">
               <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacidade

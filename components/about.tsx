@@ -12,7 +12,7 @@ export function About() {
 
         <div className="prose prose-lg mx-auto text-gray-300 dark:text-gray-300 leading-relaxed bg-gray-800/30 dark:bg-gray-800/30 p-8 rounded-2xl shadow-lg shadow-blue-500/10 dark:shadow-blue-500/10 border border-gray-700/50">
           <p className="text-xl mb-6 text-gray-200 dark:text-gray-200 font-medium">
-            Estudante de Análise e Desenvolvimento de Sistemas no 2º período, com 19 anos e 1 ano de experiência prática
+            Estudante de Análise e Desenvolvimento de Sistemas no 2º período, com 20 anos e 1 ano de experiência prática
             na área de tecnologia.
           </p>
 
@@ -28,7 +28,7 @@ export function About() {
           <p className="mb-6">
             Iniciei minha jornada na programação durante o curso e me dediquei a aprender tecnologias como{" "}
             <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
-              Python, JavaScript, Java e PHP
+              Java,Spring Boot, API Rest, HTML, CSS, JavaScript e TypeScript
             </span>
             . Minha paixão é transformar ideias em soluções digitais, sempre buscando as melhores práticas e tecnologias
             inovadoras.

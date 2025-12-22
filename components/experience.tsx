@@ -27,6 +27,22 @@ export function Experience() {
         "Foco em desenvolvimento web e soluções digitais",
       ],
     },
+    {
+    title: "Residência no Porto Digital",
+    company: "Liferay",
+    period: "Ago 2025 - Dez 2025",
+    location: "Recife, PE",
+    description: [
+      "A Residência no Porto Digital foi um grande desafio para mim e para o meu squad, no qual desenvolvemos uma solução web completa",
+      "Desenvolvimento do front-end utilizando HTML, CSS e JavaScript, e do back-end em Java com Spring Boot",
+      "Atuei como líder responsável pelo desenvolvimento back-end da aplicação, implementando autenticação JWT para validação e segurança dos dados integrados ao banco de dados",
+      "Realizamos a hospedagem da aplicação utilizando Vercel no front-end e Render no back-end, com PostgreSQL como banco de dados",
+      "Experiência altamente colaborativa, com forte aprendizado técnico, trabalho em equipe e resolução de problemas reais",
+      "Além dessa experiência, tive a honra de ser reconhecido com o certificado de Aluno Destaque da Residência, em virtude do meu desempenho durante o desenvolvimento da aplicação."
+      
+  ],
+
+    },
   ]
 
   return (

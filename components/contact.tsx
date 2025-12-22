@@ -107,7 +107,7 @@ export function Contact() {
 
         <div className="text-center mt-12">
           <p className="text-gray-400 dark:text-gray-400 text-sm bg-gray-800/30 dark:bg-gray-800/30 px-4 py-2 rounded-lg inline-block border border-gray-700/50">
-            © 2025 Jorge Antonio. Todos os direitos reservados.
+            © 2026 Jorge Antonio. Todos os direitos reservados.
           </p>
         </div>
       </div>

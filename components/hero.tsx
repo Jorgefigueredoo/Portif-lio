@@ -38,9 +38,8 @@ export function Hero() {
             </h1>
 
             <p className="text-xl text-gray-300 dark:text-gray-300 mb-8 leading-relaxed">
-              Olá! Me chamo Jorge Antonio de Lima Figueredo, tenho 19 anos e sou estudante de Análise e Desenvolvimento
-              de Sistemas pelo Senac. Sou apaixonado por tecnologia e desenvolvimento Back-End, com experiência em
-              linguagens como Python, Java, PHP e Node.js.
+              Olá! Me chamo Jorge Antonio de Lima Figueredo, tenho 20 anos e sou estudante de Análise e Desenvolvimento
+              de Sistemas pelo Senac. Sou apaixonado por tecnologia e desenvolvimento Full-Stack.
             </p>
 
             <div className="flex items-center gap-2 mb-8 text-gray-400 dark:text-gray-400 bg-gray-800/30 dark:bg-gray-800/30 px-4 py-2 rounded-lg w-fit border border-gray-700/50">
