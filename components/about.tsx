@@ -35,7 +35,7 @@ export function About() {
           </p>
 
           <p className="text-gray-300 dark:text-gray-300">
-            Atualmente estou em busca de novas oportunidades de estágio para continuar evoluindo como desenvolvedor e
+            Atualmente estou em busca de novas oportunidades, para continuar evoluindo como desenvolvedor e
             contribuir com projetos inovadores que façam a diferença.
           </p>
         </div>
