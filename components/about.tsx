@@ -12,31 +12,31 @@ export function About() {
 
         <div className="prose prose-lg mx-auto text-gray-300 dark:text-gray-300 leading-relaxed bg-gray-800/30 dark:bg-gray-800/30 p-8 rounded-2xl shadow-lg shadow-blue-500/10 dark:shadow-blue-500/10 border border-gray-700/50">
           <p className="text-xl mb-6 text-gray-200 dark:text-gray-200 font-medium">
-            Estudante de Análise e Desenvolvimento de Sistemas no 2º período, com 20 anos e 1 ano de experiência prática
-            na área de tecnologia.
+            Desenvolvedor Full Stack com sólida formação em tecnologias modernas como Java, Spring Boot, React e MySQL, com experiência prática no desenvolvimento de aplicações web completas, desde a concepção até a implantação.
           </p>
 
           <p className="mb-6">
-            Durante meu estágio na{" "}
+            Tenho foco em{" "}
+            <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
+              APIs REST, autenticação OAuth2/JWT e integração front-end/back-end
+            </span>
+            . Durante meu estágio na{" "}
             <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
               2D Telecom
             </span>
-            , uma empresa provedora de internet, atuei como suporte técnico e atendimento ao cliente, desenvolvendo
-            habilidades técnicas e de comunicação essenciais para o mercado de trabalho.
+            , atuei em suporte técnico, desenvolvendo habilidades em resolução de problemas, diagnóstico de sistemas e comunicação eficaz com stakeholders.
           </p>
 
           <p className="mb-6">
-            Iniciei minha jornada na programação durante o curso e me dediquei a aprender tecnologias como{" "}
+            Em 2026 participei do{" "}
             <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
-              Java,Spring Boot, API Rest, HTML, CSS, JavaScript e TypeScript
+              CampusMobile 2026
             </span>
-            . Minha paixão é transformar ideias em soluções digitais, sempre buscando as melhores práticas e tecnologias
-            inovadoras.
+            , programa intensivo de inovação do Instituto NET Claro Embratel / LSI-TEC focado em soluções mobile para agronegócio, o que demonstra meu engajamento com inovação e networking no ecossistema tech.
           </p>
 
           <p className="text-gray-300 dark:text-gray-300">
-            Atualmente estou em busca de novas oportunidades, para continuar evoluindo como desenvolvedor e
-            contribuir com projetos inovadores que façam a diferença.
+            Busco posição como desenvolvedor júnior para aplicar conhecimentos técnicos em projetos desafiadores e contribuir com soluções de qualidade.
           </p>
         </div>
       </div>

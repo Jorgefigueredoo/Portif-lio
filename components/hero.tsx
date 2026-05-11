@@ -37,9 +37,12 @@ export function Hero() {
               Olá, eu sou <span className="text-blue-400 dark:text-blue-400">Jorge Antonio</span>
             </h1>
 
+            <p className="text-lg text-blue-300 dark:text-blue-300 mb-4 font-medium">
+              Desenvolvedor Full Stack
+            </p>
+
             <p className="text-xl text-gray-300 dark:text-gray-300 mb-8 leading-relaxed">
-              Olá! Me chamo Jorge Antonio de Lima Figueredo, tenho 20 anos e sou estudante de Análise e Desenvolvimento
-              de Sistemas pelo Senac. Sou apaixonado por tecnologia e desenvolvimento Full-Stack.
+              Desenvolvedor Full Stack com sólida formação em Java, Spring Boot, React e MySQL. Experiência no desenvolvimento de aplicações web completas, com foco em APIs REST, autenticação OAuth2/JWT e integração front-end/back-end.
             </p>
 
             <div className="flex items-center gap-2 mb-8 text-gray-400 dark:text-gray-400 bg-gray-800/30 dark:bg-gray-800/30 px-4 py-2 rounded-lg w-fit border border-gray-700/50">
@@ -96,7 +99,7 @@ export function Hero() {
                 className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 hover:bg-gray-800/50 dark:hover:bg-gray-800/50 cursor-pointer"
                 asChild
               >
-                <a href="mailto:contatojorgeafigueredo@gmail.com">
+                <a href="mailto:jorgeafigueredo@gmail.com">
                   <Mail className="h-5 w-5" />
                   <span className="sr-only">Email</span>
                 </a>

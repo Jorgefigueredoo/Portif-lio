@@ -1,25 +1,35 @@
 export function Skills() {
   const skillCategories = [
     {
-      title: "Linguagens de Programação",
-      skills: ["Java","Python", "HTML/CSS/JavaScript", "TypeScript"],
+      title: "Backend & Frameworks",
+      skills: ["Java", "Spring Boot", "APIs REST", "OAuth2", "JWT", "MySQL / SQL", "PostgreSQL"],
     },
     {
-      title: "Ferramentas & Tecnologias",
-      skills: ["Git/GitHub", "Google Colab", "Figma", "ChatGPT/IA", "VS Code", "v0", "Lovable"],
+      title: "Frontend & Mobile",
+      skills: ["React", "React Native", "Next.js", "TypeScript", "HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Design Responsivo"],
     },
     {
-      title: "Frameworks & Bibliotecas",
-      skills: ["React", "Next.js", "Spring Boot", "API REST"],
+      title: "DevOps & Deploy",
+      skills: ["Docker & Containerização", "Deploy de Aplicações", "CI/CD Básico", "Vercel", "Render", "Git & GitHub"],
+    },
+    {
+      title: "Integrações & APIs",
+      skills: ["Integração de Sistemas", "Consumo de APIs Externas", "Webhooks & Callbacks", "Autenticação OAuth2/JWT"],
+    },
+    {
+      title: "Ferramentas",
+      skills: ["VS Code", "Figma", "Google Colab", "ChatGPT/IA", "v0", "Lovable"],
     },
     {
       title: "Soft Skills",
       skills: [
-        "Trabalho em Equipe",
-        "Comunicação",
-        "Resolução de Problemas",
-        "Atendimento ao Cliente",
+        "Mentalidade de Crescimento",
+        "Proatividade",
         "Adaptabilidade",
+        "Comunicação Técnica",
+        "Trabalho em Equipe",
+        "Resolução de Problemas",
+        "Resiliência",
       ],
     },
   ]
@@ -29,7 +39,7 @@ export function Skills() {
       id="skills"
       className="py-20 bg-gradient-to-br from-gray-900 to-slate-900 dark:from-gray-900 dark:to-slate-900"
     >
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-100 dark:text-gray-100 mb-4">Habilidades</h2>
           <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 dark:from-blue-500 dark:to-blue-400 mx-auto mb-6"></div>
@@ -39,7 +49,7 @@ export function Skills() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
             <div
               key={index}

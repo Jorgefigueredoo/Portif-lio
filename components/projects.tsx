@@ -7,36 +7,52 @@ import Image from "next/image"
 export function Projects() {
   const projects = [
     {
-      title: "Conecta Hub - Plataforma para distribuição de sementes",
+      title: "Beacon Navigator - Plataforma Web Full Stack",
       description:
-        "O ConectaHub é uma API RESTful robusta desenvolvida para modernizar e centralizar a distribuição de sementes agrícolas. O sistema atua como um hub logístico que conecta fornecedores, agricultores e operadores, solucionando o desafio de gerir estoques críticos e rastrear entregas em tempo real.",
+        "Aplicação completa com autenticação OAuth2 (Login Google), sistema de gerenciamento de beacons e locais, perfil de usuário com edição, rotas protegidas por JWT e filtros avançados. Projeto que integra front-end e back-end com foco em segurança e experiência do usuário.",
+      image: "/images/beacon-navigator.png",
+      technologies: ["Java", "Spring Boot", "React", "MySQL", "OAuth2", "JWT"],
+      liveUrl: "https://github.com/Jorgefigueredoo",
+    },
+    {
+      title: "Conecta Hub - Sistema de Rastreamento AgTech",
+      description:
+        "Plataforma desenvolvida para agricultores rastrearem sementes e insumos, com organização hierárquica de dados, regras de negócio personalizadas e relatórios analíticos. API RESTful robusta que conecta fornecedores, agricultores e operadores.",
       image: "/images/ConectaHub.png",
-      technologies: ["Java", "Spring Boot", "API REST", "Vs Code", "Git Hub"],
+      technologies: ["Java", "Spring Boot", "React", "MySQL", "API REST"],
       liveUrl: "https://github.com/Jorgefigueredoo/Back-End-ConectaHub.git",
     },
     {
-      title: "Calculadora em Python",
+      title: "Sistema de Gestão de Atividades Complementares",
       description:
-        "Calculadora básica desenvolvida em Python com funcionalidades essenciais de operações matemáticas, demonstrando lógica de programação e estruturas de controle.",
-      image: "/images/calculadora-python.png",
-      technologies: ["Python", "Google Colab", "Lógica de Programação"],
-      liveUrl: "https://colab.research.google.com/drive/1jyPzC5ouDqOVCQIdOb8G9nbpFMyKzhm4?usp=sharing",
+        "Plataforma acadêmica Full Stack para gestão de atividades complementares, com controle de perfis (aluno, coordenador e administrador), cadastro e validação de horas por categoria, upload e validação de certificados, cálculo automático de horas, dashboard analítico e fluxo de aprovação multinível.",
+      image: "/images/atividades-complementares.png",
+      technologies: ["Java", "Spring Boot", "React", "MySQL", "Upload de Arquivos"],
+      liveUrl: "https://github.com/Jorgefigueredoo",
     },
     {
-      title: "Portfólio Pessoal",
+      title: "Sistema de Agendamento para Barbearia",
       description:
-        "Site pessoal desenvolvido com design dark moderno, padrão de pontos animados e efeitos interativos. Apresenta projetos, habilidades e experiências de forma profissional e responsiva.",
-      image: "/images/portfolio-preview.png",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-      liveUrl: "#",
+        "Aplicação web para gestão de agendamentos com controle de horários, notificações automáticas e painel administrativo para visualização de agenda. Foco em usabilidade e experiência fluida tanto para clientes quanto para administradores.",
+      image: "/images/barbearia.png",
+      technologies: ["React", "JavaScript", "APIs REST"],
+      liveUrl: "https://github.com/Jorgefigueredoo",
     },
-     {
+    {
       title: "Landing Page Fisioterapeuta",
       description:
         "Landing page desenvolvida para um fisioterapeuta, com foco em apresentar serviços, especialidades e facilitar o contato com pacientes. O projeto priorizou um design responsivo, navegação intuitiva e uma comunicação clara, visando melhorar a presença digital e a captação de novos atendimentos.",
       image: "/images/fisioterapiaLD.png",
       technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
       liveUrl: "https://fisioterapiapedrosantos.vercel.app/",
+    },
+    {
+      title: "Landing Pages Personalizadas",
+      description:
+        "Desenvolvimento de páginas institucionais e de conversão responsivas, com design moderno, otimização para SEO e integração com ferramentas de analytics. Soluções sob medida para fortalecer a presença digital de clientes.",
+      image: "/images/landing-pages.png",
+      technologies: ["HTML5", "CSS3", "JavaScript", "React"],
+      liveUrl: "https://github.com/Jorgefigueredoo",
     },
   ]
 
@@ -68,9 +84,6 @@ export function Projects() {
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 dark:from-gray-900/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="bg-blue-600/90 text-white px-4 py-2 rounded-lg font-medium">Ver Detalhes</div>
-                </div>
               </div>
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold text-gray-100 dark:text-gray-100 mb-3">{project.title}</h3>

@@ -14,6 +14,7 @@ export function Header() {
     { href: "#experience", label: "Experiência" },
     { href: "#projects", label: "Projetos" },
     { href: "#skills", label: "Habilidades" },
+    { href: "#certifications", label: "Formação" },
     { href: "#contact", label: "Contato" },
   ]
 

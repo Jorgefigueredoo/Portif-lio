@@ -29,7 +29,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-100 dark:text-gray-100">Email</p>
-                    <p className="text-gray-300 dark:text-gray-300">contatojorgeafigueredo@gmail.com</p>
+                    <p className="text-gray-300 dark:text-gray-300">jorgeafigueredo@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 bg-gray-700/30 dark:bg-gray-700/30 p-3 rounded-lg">
@@ -87,7 +87,7 @@ export function Contact() {
                   className="w-full justify-start border-gray-600 dark:border-gray-600 text-gray-300 dark:text-gray-300 hover:bg-gray-700/50 dark:hover:bg-gray-700/50 bg-gray-800/20 dark:bg-gray-800/20 cursor-pointer"
                   asChild
                 >
-                  <a href="mailto:contatojorgeafigueredo@gmail.com">
+                  <a href="mailto:jorgeafigueredo@gmail.com">
                     <Mail className="h-5 w-5 mr-3" />
                     Email
                   </a>

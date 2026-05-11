@@ -4,44 +4,42 @@ import { Calendar, MapPin } from "lucide-react"
 export function Experience() {
   const experiences = [
     {
-      title: "Suporte Técnico",
+      title: "Participante - CampusMobile 2026",
+      company: "Instituto NET Claro Embratel / LSI-TEC",
+      period: "Janeiro - Fevereiro 2026",
+      location: "São Paulo, SP",
+      description: [
+        "Participação em programa intensivo de inovação focado em soluções mobile para agronegócio",
+        "Desenvolvimento colaborativo de MVP com apresentação para banca avaliadora técnica",
+        "Networking com profissionais do ecossistema de startups e empresas de tecnologia",
+        "Aplicação prática de metodologias ágeis e ferramentas de gestão de projetos",
+      ],
+    },
+    {
+      title: "Residência no Porto Digital",
+      company: "Liferay",
+      period: "Ago 2025 - Dez 2025",
+      location: "Recife, PE",
+      description: [
+        "A Residência no Porto Digital foi um grande desafio para mim e para o meu squad, no qual desenvolvemos uma solução web completa",
+        "Desenvolvimento do front-end utilizando HTML, CSS e JavaScript, e do back-end em Java com Spring Boot",
+        "Atuei como líder responsável pelo desenvolvimento back-end da aplicação, implementando autenticação JWT para validação e segurança dos dados integrados ao banco de dados",
+        "Realizamos a hospedagem da aplicação utilizando Vercel no front-end e Render no back-end, com PostgreSQL como banco de dados",
+        "Experiência altamente colaborativa, com forte aprendizado técnico, trabalho em equipe e resolução de problemas reais",
+        "Além dessa experiência, tive a honra de ser reconhecido com o certificado de Aluno Destaque da Residência, em virtude do meu desempenho durante o desenvolvimento da aplicação.",
+      ],
+    },
+    {
+      title: "Estagiário de Suporte Técnico",
       company: "2D Telecom",
-      period: "2024 - 2025",
+      period: "Junho 2024 - Junho 2025",
       location: "Recife, PE",
       description: [
-        "Atendimento ao cliente e resolução de problemas técnicos",
-        "Suporte técnico especializado em provedores de internet",
-        "Desenvolvimento de habilidades de comunicação e trabalho em equipe",
-        "Experiência prática com troubleshooting e resolução de problemas",
+        "Atendimento técnico a clientes corporativos com resolução de incidentes de conectividade",
+        "Diagnóstico e troubleshooting de redes, melhorando tempo de resposta a chamados",
+        "Suporte presencial e remoto, desenvolvendo habilidades de comunicação técnica",
+        "Documentação de processos e criação de base de conhecimento para equipe",
       ],
-    },
-    {
-      title: "Estudante",
-      company: "Análise e Desenvolvimento de Sistemas",
-      period: "2025 - Presente",
-      location: "Recife, PE",
-      description: [
-        "Cursando 2º período de Análise e Desenvolvimento de Sistemas",
-        "Aprendizado em lógica de programação e estruturas de dados",
-        "Desenvolvimento de projetos práticos em Python, JavaScript, Java e PHP",
-        "Foco em desenvolvimento web e soluções digitais",
-      ],
-    },
-    {
-    title: "Residência no Porto Digital",
-    company: "Liferay",
-    period: "Ago 2025 - Dez 2025",
-    location: "Recife, PE",
-    description: [
-      "A Residência no Porto Digital foi um grande desafio para mim e para o meu squad, no qual desenvolvemos uma solução web completa",
-      "Desenvolvimento do front-end utilizando HTML, CSS e JavaScript, e do back-end em Java com Spring Boot",
-      "Atuei como líder responsável pelo desenvolvimento back-end da aplicação, implementando autenticação JWT para validação e segurança dos dados integrados ao banco de dados",
-      "Realizamos a hospedagem da aplicação utilizando Vercel no front-end e Render no back-end, com PostgreSQL como banco de dados",
-      "Experiência altamente colaborativa, com forte aprendizado técnico, trabalho em equipe e resolução de problemas reais",
-      "Além dessa experiência, tive a honra de ser reconhecido com o certificado de Aluno Destaque da Residência, em virtude do meu desempenho durante o desenvolvimento da aplicação."
-      
-  ],
-
     },
   ]
 
