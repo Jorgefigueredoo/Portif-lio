@@ -32,11 +32,11 @@ export function About() {
             <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
               CampusMobile 2026
             </span>
-            , programa intensivo de inovação do Instituto NET Claro Embratel / LSI-TEC focado em soluções mobile para agronegócio, o que demonstra meu engajamento com inovação e networking no ecossistema tech.
+            ,  onde evolui soluções em um ambiente de mentorias e inovação, fortalecendo minha visão de produto e desenvolvimento ágil.
           </p>
 
           <p className="text-gray-300 dark:text-gray-300">
-            Busco posição como desenvolvedor júnior para aplicar conhecimentos técnicos em projetos desafiadores e contribuir com soluções de qualidade.
+            Atualmente faço parte da Prefeitura do Recife como Analista de Inovação na Secretaria de Planejamento e Gestão (SEPLAN), contribuindo com tecnologia e inovação na gestão pública da cidade.
           </p>
         </div>
       </div>
