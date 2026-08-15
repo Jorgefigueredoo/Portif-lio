@@ -1,19 +1,26 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Sora, Outfit } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { CursorTrail } from "@/components/cursor-trail"
-import { CursorEffects } from "@/components/cursor-effects"
-import { InteractiveCursor } from "@/components/interactive-cursor"
-import { CursorGlow } from "@/components/cursor-glow"
 
-const inter = Inter({ subsets: ["latin"] })
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-sora",
+  display: "swap",
+})
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-outfit",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Jorge Antonio - Desenvolvedor Full Stack",
   description: "Portfólio de Jorge Antonio, desenvolvedor Full Stack.",
-
 }
 
 export default function RootLayout({
@@ -22,13 +29,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange={false}>
-          <CursorGlow />
-          <InteractiveCursor />
-          <CursorTrail />
-          <CursorEffects />
+    <html lang="pt-BR" suppressHydrationWarning className={`${sora.variable} ${outfit.variable}`}>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
       </body>

@@ -2,60 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   Sistema de design "Carbon" — preto + verde (principal) + vermelho (ênfase)
+   ============================================================ */
+
 @layer base {
   :root {
-    --background: 15 23 42;
-    --foreground: 248 250 252;
-    --card: 30 41 59;
-    --card-foreground: 248 250 252;
-    --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
-    --primary: 59 130 246;
-    --primary-foreground: 15 23 42;
-    --secondary: 51 65 85;
-    --secondary-foreground: 248 250 252;
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
-    --accent: 51 65 85;
-    --accent-foreground: 248 250 252;
-    --destructive: 220 38 38;
-    --destructive-foreground: 248 250 252;
-    --border: 51 65 85;
-    --input: 51 65 85;
-    --ring: 59 130 246;
-    --radius: 0.5rem;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* --- Tokens do portfólio (tema claro) --- */
+    --bg: 250 251 250;
+    --bg-2: 240 243 241;
+    --panel: 255 255 255;
+    --panel-2: 245 248 246;
+    --line: 209 217 213;
+    --txt: 12 18 15;
+    --txt-soft: 71 84 78;
+    --txt-dim: 108 122 115;
+
+    /* Paleta — versões escurecidas para contraste sobre fundo claro */
+    --neon-green: 0 135 74;
+    --neon-emerald: 46 125 50;
+    --neon-lime: 91 130 0;
+    --neon-red: 199 40 40;
+    --neon-crimson: 152 0 0;
+    --neon-steel: 84 110 122;
+
+    /* --- Tokens shadcn/ui (HSL) --- */
+    --background: 140 20% 99%;
+    --foreground: 150 22% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 22% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 22% 6%;
+    --primary: 153 100% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 14% 95%;
+    --secondary-foreground: 150 22% 6%;
+    --muted: 150 14% 95%;
+    --muted-foreground: 155 8% 38%;
+    --accent: 0 67% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 155 10% 84%;
+    --input: 155 10% 84%;
+    --ring: 153 100% 26%;
+    --radius: 1rem;
   }
 
   .dark {
-    --background: 15 23 42;
-    --foreground: 248 250 252;
-    --card: 30 41 59;
-    --card-foreground: 248 250 252;
-    --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
-    --primary: 59 130 246;
-    --primary-foreground: 15 23 42;
-    --secondary: 51 65 85;
-    --secondary-foreground: 248 250 252;
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
-    --accent: 51 65 85;
-    --accent-foreground: 248 250 252;
-    --destructive: 220 38 38;
-    --destructive-foreground: 248 250 252;
-    --border: 51 65 85;
-    --input: 51 65 85;
-    --ring: 59 130 246;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* --- Tokens do portfólio (tema escuro) --- */
+    --bg: 6 8 10;
+    --bg-2: 11 15 17;
+    --panel: 17 22 24;
+    --panel-2: 24 31 33;
+    --line: 44 55 58;
+    --txt: 236 243 239;
+    --txt-soft: 168 182 176;
+    --txt-dim: 124 139 133;
+
+    /* Paleta — verde vivo e vermelho saturado sobre preto.
+       O vermelho profundo é clareado aqui para manter legibilidade em texto pequeno. */
+    --neon-green: 0 230 118;
+    --neon-emerald: 61 220 151;
+    --neon-lime: 198 255 0;
+    --neon-red: 255 59 48;
+    --neon-crimson: 255 71 87;
+    --neon-steel: 144 164 174;
+
+    /* --- Tokens shadcn/ui (HSL) --- */
+    --background: 200 25% 3%;
+    --foreground: 150 20% 94%;
+    --card: 190 17% 8%;
+    --card-foreground: 150 20% 94%;
+    --popover: 190 17% 8%;
+    --popover-foreground: 150 20% 94%;
+    --primary: 151 100% 45%;
+    --primary-foreground: 150 30% 5%;
+    --secondary: 190 15% 15%;
+    --secondary-foreground: 150 20% 94%;
+    --muted: 190 15% 15%;
+    --muted-foreground: 160 8% 65%;
+    --accent: 3 100% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 193 14% 20%;
+    --input: 193 14% 20%;
+    --ring: 151 100% 45%;
   }
 }
 
@@ -63,105 +96,230 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-page text-ink antialiased;
+    font-family: var(--font-outfit), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-sora), system-ui, sans-serif;
+    letter-spacing: -0.03em;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* ============================================================
+   Componentes reutilizáveis
+   ============================================================ */
+
+@layer components {
+  /* Cartão de vidro com acento de cor via --accent-rgb */
+  .neon-card {
+    @apply relative rounded-3xl border border-line/70 bg-panel/70 backdrop-blur-xl transition-all duration-500;
+    box-shadow: 0 24px 50px -32px rgb(var(--accent-rgb) / 0.45);
+  }
+
+  .neon-card:hover {
+    border-color: rgb(var(--accent-rgb) / 0.6);
+    box-shadow: 0 40px 70px -34px rgb(var(--accent-rgb) / 0.75);
+    transform: translateY(-6px);
+  }
+
+  /* Etiqueta numerada acima dos títulos */
+  .section-tag {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-panel/60 px-4 py-1.5
+           text-xs font-semibold uppercase tracking-[0.2em] backdrop-blur-md;
+    color: rgb(var(--accent-rgb));
+  }
+
+  /* Destaque dos títulos de seção — rampa de vermelho */
+  .grad-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, rgb(var(--neon-red)) 0%, rgb(var(--neon-crimson)) 100%);
+  }
+
+  /* Nome no hero — rampa de verde animada */
+  .grad-text-cool {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--neon-lime)) 0%,
+      rgb(var(--neon-green)) 50%,
+      rgb(var(--neon-emerald)) 100%
+    );
+    background-size: 250% 250%;
+    animation: hue 8s ease infinite;
+  }
+
+  /* Chip de tecnologia */
+  .neon-chip {
+    @apply rounded-full border px-3 py-1 text-sm font-medium transition-colors duration-300;
+    border-color: rgb(var(--accent-rgb) / 0.4);
+    background-color: rgb(var(--accent-rgb) / 0.1);
+    color: rgb(var(--accent-rgb));
+  }
+
+  .neon-chip:hover {
+    background-color: rgb(var(--accent-rgb));
+    color: #0d0b1c;
+  }
+
+  /* Ícone em bloco com gradiente */
+  .neon-icon {
+    @apply grid place-items-center rounded-2xl text-[#10030a];
+    background-image: linear-gradient(135deg, rgb(var(--accent-rgb)), rgb(var(--accent-2-rgb)));
+    box-shadow: 0 16px 32px -16px rgb(var(--accent-rgb) / 0.95);
+  }
+
+  /* Botão principal — verde */
+  .btn-neon {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-base font-bold
+           text-[#04140b] transition-all duration-300;
+    background-image: linear-gradient(135deg, rgb(var(--neon-green)) 0%, rgb(var(--neon-emerald)) 100%);
+    box-shadow: 0 14px 34px -12px rgb(var(--neon-green) / 0.9);
+  }
+
+  .btn-neon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 44px -14px rgb(var(--neon-green) / 1);
+  }
+
+  /* Botão secundário — contorno vermelho, preenche no hover */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-neon-red/60
+           bg-neon-red/[0.07] px-8 py-3.5 text-base font-bold text-ink transition-all duration-300;
+  }
+
+  .btn-ghost:hover {
+    transform: translateY(-3px);
+    border-color: transparent;
+    background-color: rgb(var(--neon-red));
+    color: #fff;
+    box-shadow: 0 18px 40px -14px rgb(var(--neon-red) / 0.9);
+  }
 }
 
-/* Custom scrollbar */
+/* ============================================================
+   Animações
+   ============================================================ */
+
+@keyframes hue {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6vw, 8vh, 0) scale(1.25);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes scroll-x {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Revelação ao rolar */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   Detalhes do navegador
+   ============================================================ */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-800;
+  background: rgb(var(--bg-2));
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-blue-600 rounded-full;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(var(--neon-green)), rgb(var(--neon-emerald)));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-blue-500;
+  background: linear-gradient(180deg, rgb(var(--neon-red)), rgb(var(--neon-crimson)));
 }
 
-/* Cursor animations */
-@keyframes cursor-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.1);
-  }
-}
-
-.cursor-pulse {
-  animation: cursor-pulse 2s ease-in-out infinite;
-}
-
-/* Selection color */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3);
-  color: inherit;
+  background-color: rgb(var(--neon-green));
+  color: #04140b;
 }
 
 ::-moz-selection {
-  background-color: rgba(59, 130, 246, 0.3);
-  color: inherit;
+  background-color: rgb(var(--neon-green));
+  color: #04140b;
 }
 
-/* Smooth transitions for theme switching */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+/* Cursor nativo do sistema. Botões recebem a mãozinha, como os links. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
 }
 
-/* Hide default cursor globally */
-body * {
-  cursor: none !important;
-}
-
-/* Override for text inputs where we want the text cursor */
-input[type="text"],
-input[type="email"],
-textarea {
-  cursor: text !important;
-}
-
-/* Dot pattern animation */
-@keyframes dot-pulse {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1);
-  }
-}
 
-.dot-pattern {
-  animation: dot-pulse 3s ease-in-out infinite;
-}
-
-/* Blue glow effect */
-@keyframes blue-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
-  50% {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-  }
-}
-
-.blue-glow {
-  animation: blue-glow 2s ease-in-out infinite;
 }

@@ -1,43 +1,86 @@
+import type React from "react"
+import { Code2, Rocket, Building2, Quote } from "lucide-react"
+import { Reveal } from "@/components/reveal"
+import { SectionHeading, accentVars, type Accent } from "@/components/section-heading"
+
 export function About() {
+  const cards: {
+    accent: Accent
+    accent2: Accent
+    Icon: typeof Code2
+    title: string
+    body: React.ReactNode
+  }[] = [
+    {
+      accent: "red",
+      accent2: "steel",
+      Icon: Code2,
+      title: "Foco técnico",
+      body: (
+        <>
+          Tenho foco em <strong className="font-semibold text-neon-red">APIs REST, autenticação OAuth2/JWT e integração front-end/back-end</strong>. Durante meu estágio na{" "}
+          <strong className="font-semibold text-neon-red">2D Telecom</strong>, atuei em suporte técnico, desenvolvendo
+          habilidades em resolução de problemas, diagnóstico de sistemas e comunicação eficaz com stakeholders.
+        </>
+      ),
+    },
+    {
+      accent: "green",
+      accent2: "crimson",
+      Icon: Rocket,
+      title: "Inovação",
+      body: (
+        <>
+          Em 2026 participei do <strong className="font-semibold text-neon-green">CampusMobile 2026</strong>, onde evolui
+          soluções em um ambiente de mentorias e inovação, fortalecendo minha visão de produto e desenvolvimento ágil.
+        </>
+      ),
+    },
+    {
+      accent: "lime",
+      accent2: "steel",
+      Icon: Building2,
+      title: "Atuação atual",
+      body: (
+        <>
+          Atualmente faço parte da Prefeitura do Recife como{" "}
+          <strong className="font-semibold text-neon-lime">Analista de Inovação</strong> na Secretaria de Planejamento e
+          Gestão (SEPLAN), contribuindo com tecnologia e inovação na gestão pública da cidade.
+        </>
+      ),
+    },
+  ]
+
   return (
-    <section
-      id="about"
-      className="py-20 bg-gradient-to-br from-slate-900 to-gray-900 dark:from-slate-900 dark:to-gray-900"
-    >
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-100 dark:text-gray-100 mb-4">Sobre Mim</h2>
-          <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 dark:from-blue-500 dark:to-blue-400 mx-auto"></div>
-        </div>
+    <section id="about" className="relative py-24">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <SectionHeading tag="01 — Sobre" accent="red" title={<>Sobre <span className="grad-text">Mim</span></>} />
 
-        <div className="prose prose-lg mx-auto text-gray-300 dark:text-gray-300 leading-relaxed bg-gray-800/30 dark:bg-gray-800/30 p-8 rounded-2xl shadow-lg shadow-blue-500/10 dark:shadow-blue-500/10 border border-gray-700/50">
-          <p className="text-xl mb-6 text-gray-200 dark:text-gray-200 font-medium">
-            Desenvolvedor Full Stack com sólida formação em tecnologias modernas como Java, Spring Boot, React e MySQL, com experiência prática no desenvolvimento de aplicações web completas, desde a concepção até a implantação.
-          </p>
+        {/* Parágrafo de abertura em destaque */}
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-neon-crimson/15 via-panel/60 to-neon-red/10 p-8 backdrop-blur-xl sm:p-12">
+            <Quote className="absolute right-8 top-6 h-24 w-24 text-ink/[0.06]" />
+            <p className="relative max-w-4xl text-xl font-medium leading-relaxed text-ink sm:text-2xl">
+              Desenvolvedor Full Stack com sólida formação em tecnologias modernas como Java, Spring Boot, React e
+              MySQL, com experiência prática no desenvolvimento de aplicações web completas, desde a concepção até a
+              implantação.
+            </p>
+          </div>
+        </Reveal>
 
-          <p className="mb-6">
-            Tenho foco em{" "}
-            <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
-              APIs REST, autenticação OAuth2/JWT e integração front-end/back-end
-            </span>
-            . Durante meu estágio na{" "}
-            <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
-              2D Telecom
-            </span>
-            , atuei em suporte técnico, desenvolvendo habilidades em resolução de problemas, diagnóstico de sistemas e comunicação eficaz com stakeholders.
-          </p>
-
-          <p className="mb-6">
-            Em 2026 participei do{" "}
-            <span className="text-blue-400 dark:text-blue-400 font-semibold bg-gray-700/50 dark:bg-gray-700/50 px-2 py-1 rounded">
-              CampusMobile 2026
-            </span>
-            ,  onde evolui soluções em um ambiente de mentorias e inovação, fortalecendo minha visão de produto e desenvolvimento ágil.
-          </p>
-
-          <p className="text-gray-300 dark:text-gray-300">
-            Atualmente faço parte da Prefeitura do Recife como Analista de Inovação na Secretaria de Planejamento e Gestão (SEPLAN), contribuindo com tecnologia e inovação na gestão pública da cidade.
-          </p>
+        {/* Cartões coloridos */}
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          {cards.map(({ accent, accent2, Icon, title, body }, index) => (
+            <Reveal key={title} delay={index * 100}>
+              <div className="neon-card h-full p-8" style={accentVars(accent, accent2)}>
+                <div className="neon-icon mb-6 h-14 w-14">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mb-3 font-display text-xl font-bold text-ink">{title}</h3>
+                <p className="leading-relaxed text-ink-soft">{body}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

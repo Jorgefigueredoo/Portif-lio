@@ -1,9 +1,20 @@
-import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, MapPin } from "lucide-react"
+import { Reveal } from "@/components/reveal"
+import { SectionHeading, accentVars, accentColor, type Accent } from "@/components/section-heading"
 
 export function Experience() {
-  const experiences = [
+  const experiences: {
+    accent: Accent
+    accent2: Accent
+    title: string
+    company: string
+    period: string
+    location: string
+    description: string[]
+  }[] = [
     {
+      accent: "emerald",
+      accent2: "green",
       title: "Participante - CampusMobile 2026",
       company: "Instituto NET Claro Embratel / LSI-TEC",
       period: "Janeiro - Fevereiro 2026",
@@ -16,6 +27,8 @@ export function Experience() {
       ],
     },
     {
+      accent: "crimson",
+      accent2: "red",
       title: "Residência no Porto Digital",
       company: "Liferay",
       period: "Ago 2025 - Dez 2025",
@@ -30,6 +43,8 @@ export function Experience() {
       ],
     },
     {
+      accent: "lime",
+      accent2: "steel",
       title: "Estagiário de Suporte Técnico",
       company: "2D Telecom",
       period: "Junho 2024 - Junho 2025",
@@ -44,52 +59,79 @@ export function Experience() {
   ]
 
   return (
-    <section
-      id="experience"
-      className="py-20 bg-gradient-to-br from-gray-900 to-slate-900 dark:from-gray-900 dark:to-slate-900"
-    >
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-100 dark:text-gray-100 mb-4">Experiência</h2>
-          <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 dark:from-blue-500 dark:to-blue-400 mx-auto"></div>
-        </div>
+    <section id="experience" className="relative py-24">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        <SectionHeading
+          tag="02 — Trajetória"
+          accent="emerald"
+          title={<><span className="grad-text">Experiência</span></>}
+        />
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <Card
-              key={index}
-              className="border-0 bg-gray-800/40 dark:bg-gray-800/40 shadow-lg shadow-blue-500/10 dark:shadow-blue-500/15 hover:shadow-blue-500/20 dark:hover:shadow-blue-500/25 transition-all duration-300 hover:scale-[1.02] border border-gray-700/50"
-            >
-              <CardContent className="p-8">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-100 dark:text-gray-100 mb-1">{exp.title}</h3>
-                    <p className="text-lg text-blue-400 dark:text-blue-400 font-medium mb-2 bg-gray-700/30 dark:bg-gray-700/30 px-3 py-1 rounded-lg w-fit">
-                      {exp.company}
-                    </p>
-                  </div>
-                  <div className="flex flex-col lg:items-end text-sm text-gray-400 dark:text-gray-400">
-                    <div className="flex items-center gap-1 mb-1 bg-gray-700/30 dark:bg-gray-700/30 px-3 py-1 rounded-lg">
-                      <Calendar className="h-4 w-4 text-blue-400 dark:text-blue-400" />
-                      <span>{exp.period}</span>
+        {/* Linha do tempo */}
+        <div className="relative">
+          <span
+            aria-hidden
+            className="absolute left-[19px] top-2 hidden h-[calc(100%-1rem)] w-0.5 bg-gradient-to-b from-neon-emerald via-neon-crimson to-neon-lime sm:block"
+          />
+
+          <div className="space-y-6">
+            {experiences.map((exp, index) => (
+              <Reveal key={exp.title} delay={index * 90}>
+                <div className="relative sm:pl-16">
+                  {/* Marcador da linha do tempo */}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-8 hidden h-10 w-10 place-items-center rounded-full border-4 border-page sm:grid"
+                    style={{
+                      backgroundColor: accentColor(exp.accent),
+                      boxShadow: `0 0 24px ${accentColor(exp.accent, 0.8)}`,
+                    }}
+                  >
+                    <span className="h-2.5 w-2.5 rounded-full bg-page" />
+                  </span>
+
+                  <div className="neon-card p-8" style={accentVars(exp.accent, exp.accent2)}>
+                    <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                      <div>
+                        <h3 className="font-display text-xl font-bold text-ink">{exp.title}</h3>
+                        <p
+                          className="mt-2 w-fit rounded-lg px-3 py-1 font-semibold"
+                          style={{
+                            color: accentColor(exp.accent),
+                            backgroundColor: accentColor(exp.accent, 0.12),
+                          }}
+                        >
+                          {exp.company}
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-2 text-sm text-ink-dim lg:items-end">
+                        <span className="inline-flex w-fit items-center gap-2 rounded-lg border border-line bg-panel-2/60 px-3 py-1">
+                          <Calendar className="h-4 w-4" style={{ color: accentColor(exp.accent) }} />
+                          {exp.period}
+                        </span>
+                        <span className="inline-flex w-fit items-center gap-2 rounded-lg border border-line bg-panel-2/60 px-3 py-1">
+                          <MapPin className="h-4 w-4" style={{ color: accentColor(exp.accent) }} />
+                          {exp.location}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1 bg-gray-700/30 dark:bg-gray-700/30 px-3 py-1 rounded-lg">
-                      <MapPin className="h-4 w-4 text-blue-400 dark:text-blue-400" />
-                      <span>{exp.location}</span>
-                    </div>
+
+                    <ul className="space-y-3 text-ink-soft">
+                      {exp.description.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span
+                            className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                            style={{ backgroundColor: accentColor(exp.accent) }}
+                          />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                <ul className="space-y-2 text-gray-300 dark:text-gray-300">
-                  {exp.description.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-blue-400 dark:bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

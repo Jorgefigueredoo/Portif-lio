@@ -1,23 +1,42 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Antonio - PortfÃ³lio</title>
+    <title>Jorge Antonio — Desenvolvedor Full Stack</title>
+    <meta name="description" content="Portfólio de Jorge Antonio, Desenvolvedor Full Stack especializado em Python, JavaScript, Java e PHP.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Barra de progresso de leitura -->
+    <div class="scroll-progress"><span id="progressBar"></span></div>
+
+    <!-- Fundo animado -->
+    <div class="aurora" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+        <span class="blob blob-4"></span>
+        <span class="grid-overlay"></span>
+    </div>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="#home">Jorge Antonio</a>
+                    <a href="#home">
+                        <span class="logo-mark">JA</span>
+                        <span class="logo-text">Jorge Antonio</span>
+                    </a>
                 </div>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="navMenu">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link">InÃ­cio</a>
+                        <a href="#home" class="nav-link active">Início</a>
                     </li>
                     <li class="nav-item">
                         <a href="#about" class="nav-link">Sobre</a>
@@ -32,86 +51,131 @@
                         <a href="#contact" class="nav-link">Contato</a>
                     </li>
                 </ul>
-                <div class="nav-toggle" id="mobile-menu">
+                <a href="#contact" class="nav-cta">Vamos conversar <i class="fas fa-arrow-right"></i></a>
+                <button class="nav-toggle" id="mobile-menu" aria-label="Abrir menu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    OlÃ¡, eu sou <span class="highlight">Jorge Antonio</span>
+                <span class="eyebrow" data-reveal>
+                    <i class="fas fa-bolt"></i> Desenvolvedor Full Stack
+                </span>
+                <h1 class="hero-title" data-reveal>
+                    Olá, eu sou <span class="highlight">Jorge Antonio</span>
                 </h1>
-                <p class="hero-subtitle">
-                    Desenvolvedor Full Stack com 1 ano de experiÃªncia, especializado em Python, JavaScript, Java e PHP. 
-                    <strong>Transformando ideias em soluÃ§Ãµes digitais inovadoras.</strong>
+                <p class="hero-subtitle" data-reveal>
+                    Desenvolvedor Full Stack com 1 ano de experiência, especializado em Python, JavaScript, Java e PHP.
+                    <strong>Transformando ideias em soluções digitais inovadoras.</strong>
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                <div class="hero-buttons" data-reveal>
+                    <a href="#projects" class="btn btn-primary">Ver Projetos <i class="fas fa-arrow-right"></i></a>
                     <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/Jorgefigueredoo" target="_blank" class="social-link">
+                <div class="social-links" data-reveal>
+                    <a href="https://github.com/Jorgefigueredoo" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/jorge-antonio-282874303/" target="_blank" class="social-link">
+                    <a href="https://www.linkedin.com/in/jorge-antonio-282874303/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:jorgeafigueredo@gmail.com" class="social-link">
+                    <a href="mailto:jorgeafigueredo@gmail.com" class="social-link" aria-label="E-mail">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="profile-image">
-                    <img src="/images/jorge-profile.png" alt="Jorge Antonio - Desenvolvedor Full Stack">
+            <div class="hero-image" data-reveal>
+                <div class="profile-stage">
+                    <span class="ring ring-1"></span>
+                    <span class="ring ring-2"></span>
+                    <div class="profile-image">
+                        <img src="public/images/jorge-profile.png" alt="Jorge Antonio - Desenvolvedor Full Stack">
+                    </div>
+                    <span class="float-chip chip-1"><i class="fab fa-python"></i> Python</span>
+                    <span class="float-chip chip-2"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="float-chip chip-3"><i class="fab fa-java"></i> Java</span>
+                    <span class="float-chip chip-4"><i class="fab fa-php"></i> PHP</span>
                 </div>
             </div>
         </div>
+        <a href="#about" class="scroll-hint" aria-label="Rolar para baixo">
+            <span class="mouse"></span>
+            <span>role para explorar</span>
+        </a>
     </section>
+
+    <!-- Marquee de tecnologias -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Python</span><i class="dot"></i>
+            <span>JavaScript</span><i class="dot"></i>
+            <span>Java</span><i class="dot"></i>
+            <span>PHP</span><i class="dot"></i>
+            <span>React</span><i class="dot"></i>
+            <span>Next.js</span><i class="dot"></i>
+            <span>Node.js</span><i class="dot"></i>
+            <span>Figma</span><i class="dot"></i>
+            <span>Git/GitHub</span><i class="dot"></i>
+            <span>Python</span><i class="dot"></i>
+            <span>JavaScript</span><i class="dot"></i>
+            <span>Java</span><i class="dot"></i>
+            <span>PHP</span><i class="dot"></i>
+            <span>React</span><i class="dot"></i>
+            <span>Next.js</span><i class="dot"></i>
+            <span>Node.js</span><i class="dot"></i>
+            <span>Figma</span><i class="dot"></i>
+            <span>Git/GitHub</span><i class="dot"></i>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
-            <p class="section-subtitle">
-                Desenvolvedor Full Stack com 1 ano de experiÃªncia. Durante meu estÃ¡gio na 2D Telecom, uma empresa provedora de internet, atuei como suporte tÃ©cnico e atendimento ao cliente, desenvolvendo habilidades tÃ©cnicas e de comunicaÃ§Ã£o.
-            </p>
-            
+            <div class="section-head" data-reveal>
+                <span class="section-tag">01 — Sobre</span>
+                <h2 class="section-title">Sobre <span class="grad-text">Mim</span></h2>
+                <p class="section-subtitle">
+                    Desenvolvedor Full Stack com 1 ano de experiência. Durante meu estágio na 2D Telecom, uma empresa provedora de internet, atuei como suporte técnico e atendimento ao cliente, desenvolvendo habilidades técnicas e de comunicação.
+                </p>
+            </div>
+
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card accent-pink" data-reveal>
                     <div class="feature-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Desenvolvimento</h3>
-                    <p>ExperiÃªncia em tecnologias modernas como React, Next.js, Node.js e muito mais.</p>
+                    <p>Experiência em tecnologias modernas como React, Next.js, Node.js e muito mais.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card accent-cyan" data-reveal>
                     <div class="feature-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3>Design</h3>
-                    <p>CriaÃ§Ã£o de interfaces intuitivas e experiÃªncias de usuÃ¡rio excepcionais.</p>
+                    <p>Criação de interfaces intuitivas e experiências de usuário excepcionais.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card accent-amber" data-reveal>
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Performance</h3>
-                    <p>Foco em otimizaÃ§Ã£o e performance para entregar soluÃ§Ãµes rÃ¡pidas e eficientes.</p>
+                    <p>Foco em otimização e performance para entregar soluções rápidas e eficientes.</p>
                 </div>
             </div>
 
-            <div class="about-text">
+            <div class="about-text" data-reveal>
+                <span class="quote-mark">“</span>
                 <h3>Minha Jornada</h3>
                 <p>
-                    Iniciei minha jornada na programaÃ§Ã£o hÃ¡ um ano e desde entÃ£o tenho me dedicado a aprender e dominar tecnologias como Python, JavaScript, Java e PHP. Durante meu estÃ¡gio na 2D Telecom, pude aplicar conhecimentos tÃ©cnicos no suporte e atendimento ao cliente. Minha paixÃ£o Ã© transformar ideias em soluÃ§Ãµes digitais, sempre buscando as melhores prÃ¡ticas e tecnologias inovadoras.
+                    Iniciei minha jornada na programação há um ano e desde então tenho me dedicado a aprender e dominar tecnologias como Python, JavaScript, Java e PHP. Durante meu estágio na 2D Telecom, pude aplicar conhecimentos técnicos no suporte e atendimento ao cliente. Minha paixão é transformar ideias em soluções digitais, sempre buscando as melhores práticas e tecnologias inovadoras.
                 </p>
             </div>
         </div>
@@ -120,21 +184,21 @@
     <section class="highlight-section">
         <div class="container">
             <div class="highlight-content">
-                <h2 class="highlight-title">Pronto para o prÃ³ximo desafio</h2>
-                <p class="highlight-text">
-                    Estudante dedicado em busca de oportunidades de estÃ¡gio para aplicar conhecimentos e crescer profissionalmente na Ã¡rea de tecnologia.
+                <h2 class="highlight-title" data-reveal>Pronto para o próximo desafio</h2>
+                <p class="highlight-text" data-reveal>
+                    Estudante dedicado em busca de oportunidades de estágio para aplicar conhecimentos e crescer profissionalmente na área de tecnologia.
                 </p>
                 <div class="highlight-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">1+</div>
-                        <div class="stat-label">Ano de ExperiÃªncia</div>
+                    <div class="stat-item" data-reveal>
+                        <div class="stat-number" data-count="1" data-suffix="+">1+</div>
+                        <div class="stat-label">Ano de Experiência</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4</div>
+                    <div class="stat-item" data-reveal>
+                        <div class="stat-number" data-count="4" data-suffix="">4</div>
                         <div class="stat-label">Linguagens</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3+</div>
+                    <div class="stat-item" data-reveal>
+                        <div class="stat-number" data-count="3" data-suffix="+">3+</div>
                         <div class="stat-label">Projetos</div>
                     </div>
                 </div>
@@ -145,30 +209,36 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Meus Projetos</h2>
-            <p class="section-subtitle">
-                Aqui estÃ£o alguns dos projetos que desenvolvi recentemente. Cada um representa um desafio Ãºnico e uma
-                oportunidade de aprendizado.
-            </p>
-            
+            <div class="section-head" data-reveal>
+                <span class="section-tag">02 — Portfólio</span>
+                <h2 class="section-title">Meus <span class="grad-text">Projetos</span></h2>
+                <p class="section-subtitle">
+                    Aqui estão alguns dos projetos que desenvolvi recentemente. Cada um representa um desafio único e uma
+                    oportunidade de aprendizado.
+                </p>
+            </div>
+
             <div class="projects-grid">
-                <div class="project-card">
+                <article class="project-card accent-mint" data-reveal>
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/400x200/10b981/ffffff?text=Ecoando" alt="Ecoando Platform">
+                        <div class="project-cover cover-eco">
+                            <i class="fas fa-leaf"></i>
+                            <span>Ecoando</span>
+                        </div>
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="https://www.figma.com/proto/YTe27SARND04dd8dVWF6HH?node-id=0-1&t=VJjRbg5UMc5FV7qk-6" class="project-link" target="_blank">
+                                <a href="https://www.figma.com/proto/YTe27SARND04dd8dVWF6HH?node-id=0-1&t=VJjRbg5UMc5FV7qk-6" class="project-link" target="_blank" rel="noopener" aria-label="Abrir protótipo">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="https://github.com/Jorgefigueredoo" class="project-link" target="_blank">
+                                <a href="https://github.com/Jorgefigueredoo" class="project-link" target="_blank" rel="noopener" aria-label="Ver no GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Ecoando - Plataforma de EducaÃ§Ã£o Ambiental</h3>
-                        <p>Plataforma digital voltada Ã  educaÃ§Ã£o ambiental e conscientizaÃ§Ã£o ecolÃ³gica. Conecta pessoas, projetos e informaÃ§Ãµes sobre meio ambiente de forma acessÃ­vel e interativa.</p>
+                        <h3>Ecoando - Plataforma de Educação Ambiental</h3>
+                        <p>Plataforma digital voltada à educação ambiental e conscientização ecológica. Conecta pessoas, projetos e informações sobre meio ambiente de forma acessível e interativa.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Design</span>
                             <span class="tech-tag">Figma</span>
@@ -176,17 +246,17 @@
                             <span class="tech-tag">Prototipagem</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
+                <article class="project-card accent-amber" data-reveal>
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/400x200/f59e0b/ffffff?text=Calculadora" alt="Calculadora Python">
+                        <img src="public/images/calculadora-python.png" alt="Calculadora Python">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="https://colab.research.google.com/drive/1jyPzC5ouDqOVCQIdOb8G9nbpFMyKzhm4?usp=sharing" class="project-link" target="_blank">
+                                <a href="https://colab.research.google.com/drive/1jyPzC5ouDqOVCQIdOb8G9nbpFMyKzhm4?usp=sharing" class="project-link" target="_blank" rel="noopener" aria-label="Abrir no Google Colab">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="https://github.com/Jorgefigueredoo" class="project-link" target="_blank">
+                                <a href="https://github.com/Jorgefigueredoo" class="project-link" target="_blank" rel="noopener" aria-label="Ver no GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -194,32 +264,32 @@
                     </div>
                     <div class="project-content">
                         <h3>Calculadora em Python</h3>
-                        <p>Calculadora bÃ¡sica desenvolvida em Python com funcionalidades essenciais de operaÃ§Ãµes matemÃ¡ticas, demonstrando lÃ³gica de programaÃ§Ã£o e estruturas de controle.</p>
+                        <p>Calculadora básica desenvolvida em Python com funcionalidades essenciais de operações matemáticas, demonstrando lógica de programação e estruturas de controle.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Google Colab</span>
-                            <span class="tech-tag">LÃ³gica</span>
+                            <span class="tech-tag">Lógica</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
+                <article class="project-card accent-violet" data-reveal>
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/400x200/667eea/ffffff?text=Portfolio" alt="PortfÃ³lio Pessoal">
+                        <img src="public/images/portfolio-preview.png" alt="Portfólio Pessoal">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link" target="_blank">
+                                <a href="#" class="project-link" aria-label="Abrir projeto">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="https://github.com/Jorgefigueredoo" class="project-link" target="_blank">
+                                <a href="https://github.com/Jorgefigueredoo" class="project-link" target="_blank" rel="noopener" aria-label="Ver no GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>PortfÃ³lio Pessoal</h3>
-                        <p>Site pessoal desenvolvido para apresentar projetos, habilidades e experiÃªncias profissionais de forma moderna e responsiva.</p>
+                        <h3>Portfólio Pessoal</h3>
+                        <p>Site pessoal desenvolvido para apresentar projetos, habilidades e experiências profissionais de forma moderna e responsiva.</p>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -227,7 +297,7 @@
                             <span class="tech-tag">Responsive</span>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -235,18 +305,21 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Habilidades</h2>
-            <p class="section-subtitle">
-                Tecnologias e ferramentas que domino e utilizo no meu dia a dia para criar soluÃ§Ãµes eficientes e modernas.
-            </p>
-            
+            <div class="section-head" data-reveal>
+                <span class="section-tag">03 — Stack</span>
+                <h2 class="section-title"><span class="grad-text">Habilidades</span></h2>
+                <p class="section-subtitle">
+                    Tecnologias e ferramentas que domino e utilizo no meu dia a dia para criar soluções eficientes e modernas.
+                </p>
+            </div>
+
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Linguagens</h3>
+                <div class="skill-category accent-pink" data-reveal>
+                    <h3><i class="fas fa-terminal"></i> Linguagens</h3>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Python</span>
-                            <span>70%</span>
+                            <span class="skill-value">70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="70"></div>
@@ -255,7 +328,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>JavaScript</span>
-                            <span>65%</span>
+                            <span class="skill-value">65%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="65"></div>
@@ -264,7 +337,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Java</span>
-                            <span>60%</span>
+                            <span class="skill-value">60%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="60"></div>
@@ -273,7 +346,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>PHP</span>
-                            <span>45%</span>
+                            <span class="skill-value">45%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="45"></div>
@@ -281,12 +354,12 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Ferramentas</h3>
+                <div class="skill-category accent-cyan" data-reveal>
+                    <h3><i class="fas fa-toolbox"></i> Ferramentas</h3>
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Git/GitHub</span>
-                            <span>70%</span>
+                            <span class="skill-value">70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="70"></div>
@@ -295,7 +368,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>ChatGPT/IA</span>
-                            <span>75%</span>
+                            <span class="skill-value">75%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="75"></div>
@@ -304,7 +377,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Figma</span>
-                            <span>60%</span>
+                            <span class="skill-value">60%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="60"></div>
@@ -313,7 +386,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Google Colab</span>
-                            <span>65%</span>
+                            <span class="skill-value">65%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="65"></div>
@@ -321,12 +394,12 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>ExperiÃªncia</h3>
+                <div class="skill-category accent-amber" data-reveal>
+                    <h3><i class="fas fa-user-tie"></i> Experiência</h3>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>Suporte TÃ©cnico</span>
-                            <span>80%</span>
+                            <span>Suporte Técnico</span>
+                            <span class="skill-value">80%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="80"></div>
@@ -335,7 +408,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Atendimento ao Cliente</span>
-                            <span>85%</span>
+                            <span class="skill-value">85%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="85"></div>
@@ -343,8 +416,8 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>ResoluÃ§Ã£o de Problemas</span>
-                            <span>80%</span>
+                            <span>Resolução de Problemas</span>
+                            <span class="skill-value">80%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="80"></div>
@@ -353,7 +426,7 @@
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Trabalho em Equipe</span>
-                            <span>90%</span>
+                            <span class="skill-value">90%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="90"></div>
@@ -367,86 +440,96 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <p class="section-subtitle">
-                Tem algum projeto em mente? Vamos conversar! Estou sempre aberto a novas oportunidades e colaboraÃ§Ãµes.
-            </p>
-            
+            <div class="section-head" data-reveal>
+                <span class="section-tag">04 — Contato</span>
+                <h2 class="section-title">Entre em <span class="grad-text">Contato</span></h2>
+                <p class="section-subtitle">
+                    Tem algum projeto em mente? Vamos conversar! Estou sempre aberto a novas oportunidades e colaborações.
+                </p>
+            </div>
+
             <div class="contact-content">
-                <div class="contact-form">
+                <div class="contact-form" data-reveal>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Nome</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="voce@email.com" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Conte um pouco sobre a sua ideia..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
+                        <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
                     </form>
                 </div>
 
-                <div class="contact-info">
-                    <h3>InformaÃ§Ãµes de Contato</h3>
-                    <div class="contact-item">
+                <div class="contact-info" data-reveal>
+                    <h3>Informações de Contato</h3>
+                    <a class="contact-item" href="mailto:jorgeafigueredo@gmail.com">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
                             <p>jorgeafigueredo@gmail.com</p>
                         </div>
-                    </div>
-                    <div class="contact-item">
+                    </a>
+                    <a class="contact-item" href="tel:+5581973324911">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Telefone</h4>
                             <p>+55 (81) 97332-4911</p>
                         </div>
-                    </div>
+                    </a>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4>LocalizaÃ§Ã£o</h4>
+                            <h4>Localização</h4>
                             <p>Recife, PE - Brasil</p>
                         </div>
                     </div>
-                    
+
                     <div class="availability">
                         <h4>Disponibilidade</h4>
-                        <p>Atualmente disponÃ­vel para novos projetos e oportunidades freelance.</p>
+                        <p>Atualmente disponível para novos projetos e oportunidades freelance.</p>
                         <div class="status">
                             <div class="status-indicator"></div>
-                            <span>DisponÃ­vel para trabalho</span>
+                            <span>Disponível para trabalho</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-top">
+                <span class="footer-wordmark">Jorge Antonio</span>
+            </div>
             <div class="footer-content">
                 <p>&copy; 2024 Jorge Antonio. Todos os direitos reservados.</p>
                 <div class="footer-social">
-                    <a href="https://github.com/Jorgefigueredoo" target="_blank" class="social-link">
+                    <a href="https://github.com/Jorgefigueredoo" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/jorge-antonio-282874303/" target="_blank" class="social-link">
+                    <a href="https://www.linkedin.com/in/jorge-antonio-282874303/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:jorgeafigueredo@gmail.com" class="social-link">
+                    <a href="mailto:jorgeafigueredo@gmail.com" class="social-link" aria-label="E-mail">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
 
     <script src="script.js"></script>
 </body>

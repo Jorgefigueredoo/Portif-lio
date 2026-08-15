@@ -1,130 +1,109 @@
-import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, MapPin } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin, ArrowRight, Sparkles } from "lucide-react"
 import Image from "next/image"
+import { Reveal } from "@/components/reveal"
 
 export function Hero() {
+  const socials = [
+    { href: "https://github.com/Jorgefigueredoo", label: "GitHub", Icon: Github },
+    { href: "https://www.linkedin.com/in/jorge-antonio-282874303/", label: "LinkedIn", Icon: Linkedin },
+    { href: "mailto:jorgeafigueredo@gmail.com", label: "Email", Icon: Mail },
+  ]
+
+  const chips = [
+    { label: "Java", className: "left-[-6%] top-[6%] text-neon-lime border-neon-lime/45" },
+    { label: "Spring Boot", className: "right-[-10%] top-[32%] text-neon-emerald border-neon-emerald/45 [animation-delay:-1.5s]" },
+    { label: "React", className: "left-[-10%] bottom-[22%] text-neon-green border-neon-green/45 [animation-delay:-3s]" },
+    { label: "MySQL", className: "bottom-[4%] right-[2%] text-neon-red border-neon-red/45 [animation-delay:-4.5s]" },
+  ]
+
   return (
-    <section
-      id="home"
-      className="pt-24 pb-16 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 dark:from-gray-900 dark:via-slate-900 dark:to-gray-900 relative overflow-hidden"
-    >
-      {/* Dot Pattern Background */}
-      <div className="absolute right-0 top-0 w-1/2 h-full opacity-30">
-        <div className="grid grid-cols-12 gap-4 h-full p-8">
-          {Array.from({ length: 144 }).map((_, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-full ${
-                Math.random() > 0.7 ? "bg-blue-500" : Math.random() > 0.5 ? "bg-blue-400" : "bg-blue-600"
-              } animate-pulse`}
-              style={{ animationDelay: `${Math.random() * 3}s` }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full animate-pulse"></div>
-              <span className="text-sm text-blue-400 dark:text-blue-400 font-medium bg-gray-800/50 dark:bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700/50">
-                Disponível para oportunidades de trabalho
-              </span>
-            </div>
-
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-100 dark:text-gray-100 mb-6 leading-tight">
-              Olá, eu sou <span className="text-blue-400 dark:text-blue-400">Jorge Antonio</span>
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden pb-24 pt-32">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+        <div className="order-2 lg:order-1">
+          <Reveal>
+            <h1 className="text-5xl font-extrabold leading-[1.02] text-ink sm:text-6xl lg:text-7xl">
+              Olá, eu sou <span className="grad-text-cool">Jorge Antonio</span>
             </h1>
+          </Reveal>
 
-            <p className="text-lg text-blue-300 dark:text-blue-300 mb-4 font-medium">
+          <Reveal delay={140}>
+            <p className="mt-5 inline-flex items-center gap-2 font-display text-lg font-bold text-neon-lime">
+              <Sparkles className="h-5 w-5" />
               Desenvolvedor Full Stack
             </p>
+          </Reveal>
 
-            <p className="text-xl text-gray-300 dark:text-gray-300 mb-8 leading-relaxed">
-              Desenvolvedor Full Stack com sólida formação em Java, Spring Boot, React e MySQL. Experiência no desenvolvimento de aplicações web completas, com foco em APIs REST, autenticação OAuth2/JWT e integração front-end/back-end.
+          <Reveal delay={200}>
+            <p className="mt-5 max-w-2xl border-l-4 border-neon-crimson pl-5 text-lg leading-relaxed text-ink-soft">
+              Desenvolvedor Full Stack com sólida formação em Java, Spring Boot, React e MySQL. Experiência no
+              desenvolvimento de aplicações web completas, com foco em APIs REST, autenticação OAuth2/JWT e integração
+              front-end/back-end.
             </p>
+          </Reveal>
 
-            <div className="flex items-center gap-2 mb-8 text-gray-400 dark:text-gray-400 bg-gray-800/30 dark:bg-gray-800/30 px-4 py-2 rounded-lg w-fit border border-gray-700/50">
-              <MapPin className="h-4 w-4 text-blue-400 dark:text-blue-400" />
-              <span className="text-sm font-medium">Recife, PE - Brasil</span>
+          <Reveal delay={260}>
+            <div className="mt-7 inline-flex w-fit items-center gap-2 rounded-full border border-line bg-panel/70 px-4 py-2 backdrop-blur-md">
+              <MapPin className="h-4 w-4 text-neon-green" />
+              <span className="text-sm font-medium text-ink-soft">Recife, PE - Brasil</span>
             </div>
+          </Reveal>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-gray-100 px-8 shadow-lg shadow-blue-500/25 dark:shadow-blue-500/25 cursor-pointer"
-              >
-                <a href="#contact">Entre em Contato</a>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-gray-600 dark:border-gray-600 text-gray-300 dark:text-gray-300 hover:bg-gray-800/50 dark:hover:bg-gray-800/50 px-8 bg-gray-800/20 dark:bg-gray-800/20 cursor-pointer"
-              >
-                <a href="#projects">Ver Projetos</a>
-              </Button>
+          <Reveal delay={320}>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#contact" className="btn-neon">
+                Entre em Contato <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="#projects" className="btn-ghost">
+                Ver Projetos
+              </a>
             </div>
+          </Reveal>
 
-            <div className="flex gap-4">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 hover:bg-gray-800/50 dark:hover:bg-gray-800/50 cursor-pointer"
-                asChild
-              >
-                <a href="https://github.com/Jorgefigueredoo" target="_blank" rel="noopener noreferrer">
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 hover:bg-gray-800/50 dark:hover:bg-gray-800/50 cursor-pointer"
-                asChild
-              >
+          <Reveal delay={380}>
+            <div className="mt-9 flex gap-3.5">
+              {socials.map(({ href, label, Icon }) => (
                 <a
-                  href="https://www.linkedin.com/in/jorge-antonio-282874303/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="group grid h-12 w-12 place-items-center rounded-2xl border border-line bg-panel/70 text-ink-soft backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:-rotate-6 hover:border-transparent hover:bg-grad-violet hover:text-white hover:shadow-[0_16px_32px_-12px_rgba(139,92,246,0.95)]"
                 >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
+                  <Icon className="h-5 w-5" />
+                  <span className="sr-only">{label}</span>
                 </a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 hover:bg-gray-800/50 dark:hover:bg-gray-800/50 cursor-pointer"
-                asChild
-              >
-                <a href="mailto:jorgeafigueredo@gmail.com">
-                  <Mail className="h-5 w-5" />
-                  <span className="sr-only">Email</span>
-                </a>
-              </Button>
+              ))}
             </div>
-          </div>
-
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-slate-800 dark:from-gray-800 dark:to-slate-800 shadow-xl shadow-blue-500/20 dark:shadow-blue-500/30 border border-gray-700/50">
-                <Image
-                  src="/images/jorge-profile.png"
-                  alt="Jorge Antonio - Desenvolvedor Full Stack"
-                  width={320}
-                  height={320}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 dark:bg-blue-500 rounded-full opacity-80 animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-400 dark:bg-blue-400 rounded-full opacity-60 animate-pulse delay-1000"></div>
-              <div className="absolute top-1/2 -left-8 w-4 h-4 bg-blue-600 dark:bg-blue-600 rounded-full opacity-40 animate-bounce"></div>
-            </div>
-          </div>
+          </Reveal>
         </div>
+
+        {/* Retrato com anel girando e chips flutuantes */}
+        <Reveal delay={160} className="order-1 lg:order-2">
+          <div className="relative mx-auto aspect-square w-[min(380px,80vw)] lg:ml-auto lg:mr-0">
+            <span className="absolute inset-0 animate-spin-slow rounded-full bg-[conic-gradient(from_0deg,#00e676,#c6ff00,#00a86b,#ff3b30,#d50000,#00e676)] blur-[2px]" />
+            <span className="absolute inset-3.5 rounded-full bg-page" />
+
+            <div className="absolute inset-6 overflow-hidden rounded-full border-2 border-line shadow-[0_30px_70px_-25px_rgba(255,46,147,0.6)]">
+              <Image
+                src="/images/jorge-profile.png"
+                alt="Jorge Antonio - Desenvolvedor Full Stack"
+                width={400}
+                height={400}
+                priority
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            {chips.map((chip) => (
+              <span
+                key={chip.label}
+                className={`absolute animate-bob whitespace-nowrap rounded-full border bg-panel/90 px-4 py-2 text-sm font-semibold shadow-lg backdrop-blur-md ${chip.className}`}
+              >
+                {chip.label}
+              </span>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   )
