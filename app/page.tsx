@@ -1,5 +1,8 @@
 import { Header } from "@/components/header"
 import { Aurora } from "@/components/aurora"
+import { PointerField } from "@/components/pointer-field"
+import { ScrollField } from "@/components/scroll-field"
+import { ScrollProgress } from "@/components/scroll-progress"
 import { Hero } from "@/components/hero"
 import { Marquee } from "@/components/marquee"
 import { About } from "@/components/about"
@@ -13,6 +16,9 @@ import { BackToTop } from "@/components/back-to-top"
 export default function Home() {
   return (
     <div className="relative min-h-screen">
+      <PointerField />
+      <ScrollField />
+      <ScrollProgress />
       <Aurora />
       <Header />
       <main className="relative z-10">

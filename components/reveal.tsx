@@ -2,15 +2,22 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react"
 
+/**
+ * `rise` — sobe, desfoca e assenta a escala. É a entrada padrão da página.
+ * `wipe` — o bloco se desenha de baixo para cima, como uma cortina.
+ */
+type RevealVariant = "rise" | "wipe"
+
 interface RevealProps {
   children: ReactNode
   /** Atraso da animação em milissegundos */
   delay?: number
+  variant?: RevealVariant
   className?: string
 }
 
 /** Revela o conteúdo com fade + subida quando ele entra na viewport. */
-export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
+export function Reveal({ children, delay = 0, variant = "rise", className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -35,7 +42,7 @@ export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
+      className={`reveal reveal-${variant} ${visible ? "is-visible" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

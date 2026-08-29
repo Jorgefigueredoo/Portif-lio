@@ -1,10 +1,11 @@
 import { Award, GraduationCap } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { Tilt } from "@/components/tilt"
 import { SectionHeading, accentVars, type Accent } from "@/components/section-heading"
 
 export function Certifications() {
   /** Ciclo de cores aplicado aos cartões de certificado. */
-  const palette: Accent[] = ["red", "green", "lime", "emerald", "crimson", "steel"]
+  const palette: Accent[] = ["graphite", "accent", "slate", "accent-soft", "graphite-deep", "graphite-soft"]
 
   const certifications = [
     { title: "Java Completo", issuer: "Professor Nélio Alves (Udemy)" },
@@ -31,17 +32,17 @@ export function Certifications() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           tag="05 — Formação"
-          accent="lime"
+          accent="accent"
           title={<>Formação & <span className="grad-text">Certificações</span></>}
           description="Formação acadêmica e cursos que venho realizando para me especializar no desenvolvimento Full Stack."
         />
 
         {/* Formação acadêmica em destaque */}
         <Reveal>
-          <div className="relative mb-8 overflow-hidden rounded-[2rem] bg-grad-cool p-[2px]">
+          <div className="relative mb-8 overflow-hidden rounded-2xl bg-grad-accent p-[2px]">
             <div className="rounded-[calc(2rem-2px)] bg-page/90 p-8 backdrop-blur-xl sm:p-10">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                <span className="neon-icon h-16 w-16 flex-shrink-0" style={accentVars("green", "crimson")}>
+                <span className="neon-icon h-16 w-16 flex-shrink-0" style={accentVars("accent", "graphite-deep")}>
                   <GraduationCap className="h-8 w-8" />
                 </span>
 
@@ -53,11 +54,11 @@ export function Certifications() {
                     </span>
                   </div>
 
-                  <p className="mb-3 font-display text-lg font-bold text-neon-green">{education.institution}</p>
+                  <p className="mb-3 font-display text-lg font-bold text-tone-accent">{education.institution}</p>
                   <p className="leading-relaxed text-ink-soft">{education.description}</p>
 
-                  <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-neon-emerald/40 bg-neon-emerald/10 px-4 py-1.5 text-sm font-bold text-neon-emerald">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-neon-emerald" />
+                  <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-tone-accent-soft/40 bg-tone-accent-soft/10 px-4 py-1.5 text-sm font-bold text-tone-accent-soft">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-tone-accent-soft" />
                     {education.status}
                   </span>
                 </div>
@@ -74,13 +75,15 @@ export function Certifications() {
 
             return (
               <Reveal key={cert.title} delay={(index % 4) * 70}>
-                <div className="neon-card h-full p-6" style={accentVars(accent, accent2)}>
-                  <span className="neon-icon mb-4 h-11 w-11">
-                    <Award className="h-5 w-5" />
-                  </span>
-                  <h4 className="mb-1.5 font-display text-base font-bold leading-tight text-ink">{cert.title}</h4>
-                  <p className="text-sm text-ink-dim">{cert.issuer}</p>
-                </div>
+                <Tilt strength={13}>
+                  <div className="neon-card h-full p-6" style={accentVars(accent, accent2)}>
+                    <span className="neon-icon mb-4 h-11 w-11">
+                      <Award className="h-5 w-5" />
+                    </span>
+                    <h4 className="mb-1.5 font-display text-base font-bold leading-tight text-ink">{cert.title}</h4>
+                    <p className="text-sm text-ink-dim">{cert.issuer}</p>
+                  </div>
+                </Tilt>
               </Reveal>
             )
           })}

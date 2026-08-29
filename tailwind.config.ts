@@ -21,14 +21,15 @@ const config: Config = {
         "ink-soft": "rgb(var(--txt-soft) / <alpha-value>)",
         "ink-dim": "rgb(var(--txt-dim) / <alpha-value>)",
 
-        /* Paleta — os valores mudam com o tema (ver globals.css) */
-        neon: {
-          green: "rgb(var(--neon-green) / <alpha-value>)",
-          emerald: "rgb(var(--neon-emerald) / <alpha-value>)",
-          lime: "rgb(var(--neon-lime) / <alpha-value>)",
-          red: "rgb(var(--neon-red) / <alpha-value>)",
-          crimson: "rgb(var(--neon-crimson) / <alpha-value>)",
-          steel: "rgb(var(--neon-steel) / <alpha-value>)",
+        /* Rampa de tons — os valores mudam com o tema (ver globals.css).
+           Dois tons de acento e quatro de grafite. */
+        tone: {
+          accent: "rgb(var(--tone-accent) / <alpha-value>)",
+          "accent-soft": "rgb(var(--tone-accent-soft) / <alpha-value>)",
+          slate: "rgb(var(--tone-slate) / <alpha-value>)",
+          graphite: "rgb(var(--tone-graphite) / <alpha-value>)",
+          "graphite-deep": "rgb(var(--tone-graphite-deep) / <alpha-value>)",
+          "graphite-soft": "rgb(var(--tone-graphite-soft) / <alpha-value>)",
         },
 
         /* Tokens shadcn/ui */
@@ -76,11 +77,11 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        /* Verde = ação principal; vermelho = ênfase */
-        "grad-hot": "linear-gradient(135deg, rgb(var(--neon-green)) 0%, rgb(var(--neon-emerald)) 100%)",
-        "grad-cool": "linear-gradient(135deg, rgb(var(--neon-lime)) 0%, rgb(var(--neon-green)) 100%)",
-        "grad-red": "linear-gradient(135deg, rgb(var(--neon-red)) 0%, rgb(var(--neon-crimson)) 100%)",
-        "grad-violet": "linear-gradient(135deg, rgb(var(--neon-red)) 0%, rgb(var(--neon-crimson)) 100%)",
+        /* Um único gradiente de acento, em duas direções. Os antigos
+           `grad-red` e `grad-violet` saíram: apontavam ambos para vermelho
+           e eram resto de uma paleta que não existe mais. */
+        "grad-accent": "linear-gradient(135deg, rgb(var(--tone-accent)) 0%, rgb(var(--tone-accent-soft)) 100%)",
+        "grad-accent-rev": "linear-gradient(135deg, rgb(var(--tone-accent-soft)) 0%, rgb(var(--tone-accent)) 100%)",
       },
       keyframes: {
         "accordion-down": {

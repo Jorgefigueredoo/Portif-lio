@@ -18,7 +18,7 @@ export function BackToTop() {
     <a
       href="#home"
       aria-label="Voltar ao topo"
-      className={`fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-2xl bg-grad-hot text-[#16040c] shadow-[0_14px_30px_-12px_rgba(255,46,147,0.95)] transition-all duration-300 ${
+      className={`fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-lg bg-tone-accent text-white shadow-[0_12px_28px_-12px_rgb(var(--tone-accent))] transition-all duration-300 ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >

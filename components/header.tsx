@@ -45,15 +45,15 @@ export function Header() {
 
   return (
     <header
-      className={`fixed left-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-[1.75rem] border backdrop-blur-xl transition-all duration-300 lg:rounded-full ${
+      className={`fixed left-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 rounded-2xl border backdrop-blur-xl transition-all duration-300 lg:rounded-full ${
         scrolled
-          ? "top-2.5 border-line bg-panel/90 shadow-[0_18px_45px_-22px_rgba(255,46,147,0.55)]"
+          ? "top-2.5 border-line bg-panel/95 shadow-[0_16px_40px_-24px_rgb(0_0_0/0.6)]"
           : "top-4 border-line/60 bg-panel/50"
       }`}
     >
       <div className="flex items-center justify-between gap-4 px-3 py-2.5 pl-4">
         <Link href="#home" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-grad-hot font-display text-sm font-extrabold text-[#12030b] shadow-[0_8px_22px_-6px_rgba(255,46,147,0.8)]">
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-grad-accent font-display text-sm font-extrabold text-white shadow-[0_8px_20px_-8px_rgb(var(--tone-accent))]">
             JA
           </span>
           <span className="font-display text-base font-bold text-ink">Jorge Antonio</span>
@@ -69,7 +69,7 @@ export function Header() {
                 href={item.href}
                 className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-gradient-to-r from-neon-red/25 to-neon-crimson/25 text-ink shadow-[inset_0_0_0_1px_rgba(255,46,147,0.5)]"
+                    ? "bg-tone-accent/[0.12] text-ink shadow-[inset_0_0_0_1px_rgb(var(--tone-accent)/0.45)]"
                     : "text-ink-soft hover:bg-panel-2 hover:text-ink"
                 }`}
               >
@@ -84,7 +84,7 @@ export function Header() {
 
           <Link
             href="#contact"
-            className="hidden items-center gap-2 rounded-full bg-grad-hot px-5 py-2.5 text-sm font-bold text-[#16040c] shadow-[0_10px_28px_-10px_rgba(255,46,147,0.9)] transition-transform duration-300 hover:-translate-y-0.5 xl:inline-flex"
+            className="hidden items-center gap-2 rounded-lg bg-tone-accent px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_26px_-12px_rgb(var(--tone-accent))] transition-transform duration-300 hover:-translate-y-0.5 xl:inline-flex"
           >
             Vamos conversar <ArrowRight className="h-3.5 w-3.5" />
           </Link>
@@ -94,7 +94,7 @@ export function Header() {
             aria-label="Abrir menu"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-panel-2 text-ink transition-colors hover:text-neon-red lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-lg border border-line bg-panel-2 text-ink transition-colors hover:border-tone-accent/50 hover:text-tone-accent lg:hidden"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -110,9 +110,9 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                className={`rounded-lg px-4 py-3 text-base font-medium transition-colors ${
                   active === item.href.slice(1)
-                    ? "bg-gradient-to-r from-neon-red/25 to-neon-crimson/25 text-ink"
+                    ? "bg-tone-accent/[0.12] text-ink"
                     : "text-ink-soft hover:bg-panel-2 hover:text-ink"
                 }`}
               >

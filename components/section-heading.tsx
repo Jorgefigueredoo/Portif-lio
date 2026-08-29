@@ -2,19 +2,23 @@ import type React from "react"
 import type { ReactNode } from "react"
 import { Reveal } from "@/components/reveal"
 
-/** Nomes da paleta. Os valores reais mudam conforme o tema (ver globals.css). */
-export type Accent = "green" | "emerald" | "lime" | "red" | "crimson" | "steel"
+/**
+ * Tons do sistema. Os nomes descrevem o papel, não a cor: assim a paleta pode
+ * mudar sem que os componentes passem a mentir sobre o que pedem.
+ * Os valores reais mudam conforme o tema (ver globals.css).
+ */
+export type Accent = "accent" | "accent-soft" | "slate" | "graphite" | "graphite-deep" | "graphite-soft"
 
-/** Referência CSS à cor da paleta, ex.: rgb(var(--neon-green)). */
+/** Referência CSS ao tom, ex.: rgb(var(--tone-accent)). */
 export function accentColor(accent: Accent, alpha?: number) {
-  return alpha === undefined ? `rgb(var(--neon-${accent}))` : `rgb(var(--neon-${accent}) / ${alpha})`
+  return alpha === undefined ? `rgb(var(--tone-${accent}))` : `rgb(var(--tone-${accent}) / ${alpha})`
 }
 
-/** Variáveis consumidas por .neon-card, .neon-chip, .neon-icon e .section-tag. */
+/** Variáveis consumidas por .neon-card e .section-tag. */
 export function accentVars(accent: Accent, accent2: Accent = accent): React.CSSProperties {
   return {
-    "--accent-rgb": `var(--neon-${accent})`,
-    "--accent-2-rgb": `var(--neon-${accent2})`,
+    "--accent-rgb": `var(--tone-${accent})`,
+    "--accent-2-rgb": `var(--tone-${accent2})`,
   } as React.CSSProperties
 }
 
@@ -28,7 +32,7 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ tag, accent, title, description }: SectionHeadingProps) {
   return (
-    <Reveal className="mx-auto mb-16 max-w-3xl text-center">
+    <Reveal variant="wipe" className="mx-auto mb-16 max-w-3xl text-center">
       <span className="section-tag" style={accentVars(accent)}>
         {tag}
       </span>

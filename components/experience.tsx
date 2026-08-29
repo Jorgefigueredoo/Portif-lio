@@ -13,8 +13,8 @@ export function Experience() {
     description: string[]
   }[] = [
     {
-      accent: "emerald",
-      accent2: "green",
+      accent: "accent-soft",
+      accent2: "accent",
       title: "Participante - CampusMobile 2026",
       company: "Instituto NET Claro Embratel / LSI-TEC",
       period: "Janeiro - Fevereiro 2026",
@@ -27,8 +27,8 @@ export function Experience() {
       ],
     },
     {
-      accent: "crimson",
-      accent2: "red",
+      accent: "graphite-deep",
+      accent2: "graphite",
       title: "Residência no Porto Digital",
       company: "Liferay",
       period: "Ago 2025 - Dez 2025",
@@ -43,8 +43,8 @@ export function Experience() {
       ],
     },
     {
-      accent: "lime",
-      accent2: "steel",
+      accent: "slate",
+      accent2: "graphite-soft",
       title: "Estagiário de Suporte Técnico",
       company: "2D Telecom",
       period: "Junho 2024 - Junho 2025",
@@ -63,7 +63,7 @@ export function Experience() {
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <SectionHeading
           tag="02 — Trajetória"
-          accent="emerald"
+          accent="accent"
           title={<><span className="grad-text">Experiência</span></>}
         />
 
@@ -71,7 +71,7 @@ export function Experience() {
         <div className="relative">
           <span
             aria-hidden
-            className="absolute left-[19px] top-2 hidden h-[calc(100%-1rem)] w-0.5 bg-gradient-to-b from-neon-emerald via-neon-crimson to-neon-lime sm:block"
+            className="absolute left-[19px] top-2 hidden h-[calc(100%-1rem)] w-0.5 bg-gradient-to-b from-tone-accent via-tone-accent/40 to-transparent sm:block"
           />
 
           <div className="space-y-6">

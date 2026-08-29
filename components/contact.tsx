@@ -10,15 +10,15 @@ export function Contact() {
     value: string
     href: string | null
   }[] = [
-    { accent: "red", Icon: Mail, label: "Email", value: "jorgeafigueredo@gmail.com", href: "mailto:jorgeafigueredo@gmail.com" },
-    { accent: "green", Icon: Phone, label: "Telefone", value: "+55 (81) 97332-4911", href: "tel:+5581973324911" },
-    { accent: "lime", Icon: MapPin, label: "Localização", value: "Recife, PE - Brasil", href: null },
+    { accent: "graphite", Icon: Mail, label: "Email", value: "jorgeafigueredo@gmail.com", href: "mailto:jorgeafigueredo@gmail.com" },
+    { accent: "accent", Icon: Phone, label: "Telefone", value: "+55 (81) 97332-4911", href: "tel:+5581973324911" },
+    { accent: "slate", Icon: MapPin, label: "Localização", value: "Recife, PE - Brasil", href: null },
   ]
 
   const socials: { accent: Accent; Icon: typeof Mail; label: string; href: string }[] = [
-    { accent: "green", Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/jorge-antonio-282874303/" },
-    { accent: "crimson", Icon: Github, label: "GitHub", href: "https://github.com/Jorgefigueredoo" },
-    { accent: "red", Icon: Mail, label: "Email", href: "mailto:jorgeafigueredo@gmail.com" },
+    { accent: "accent", Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/jorge-antonio-282874303/" },
+    { accent: "graphite-deep", Icon: Github, label: "GitHub", href: "https://github.com/Jorgefigueredoo" },
+    { accent: "graphite", Icon: Mail, label: "Email", href: "mailto:jorgeafigueredo@gmail.com" },
   ]
 
   return (
@@ -26,7 +26,7 @@ export function Contact() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           tag="06 — Contato"
-          accent="red"
+          accent="accent"
           title={<>Vamos <span className="grad-text">Conversar</span></>}
           description="Entre em contato para conversarmos sobre como posso contribuir com sua equipe."
         />
@@ -34,7 +34,7 @@ export function Contact() {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Informações de contato */}
           <Reveal>
-            <div className="neon-card h-full p-8 sm:p-10" style={accentVars("red", "crimson")}>
+            <div className="neon-card h-full p-8 sm:p-10" style={accentVars("graphite", "graphite-deep")}>
               <h3 className="mb-7 font-display text-2xl font-bold text-ink">Informações de Contato</h3>
 
               <div className="space-y-4">
@@ -71,7 +71,7 @@ export function Contact() {
 
           {/* Redes sociais */}
           <Reveal delay={100}>
-            <div className="neon-card h-full p-8 sm:p-10" style={accentVars("green", "crimson")}>
+            <div className="neon-card h-full p-8 sm:p-10" style={accentVars("accent", "graphite-deep")}>
               <h3 className="mb-7 font-display text-2xl font-bold text-ink">Redes Sociais</h3>
 
               <div className="space-y-3">
