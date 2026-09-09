@@ -575,3 +575,61 @@ button:not(:disabled),
     display: none;
   }
 }
+
+/* ============================================================
+   Lenis — rolagem suave (ver <SmoothScroll>).
+
+   O Lenis controla o deslocamento por JS, então o scroll nativo do
+   navegador precisa sair do caminho. As classes abaixo só existem
+   enquanto o Lenis está ativo; sem JS ou com "reduzir movimento", a
+   página volta ao scroll normal.
+   ============================================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ============================================================
+   Scrollytelling do hero (ver <ScrollytellingHero>).
+   ============================================================ */
+
+/* Empilha frases e imagens na mesma célula de grade: o container
+   assume o tamanho do maior filho e o GSAP só cuida da opacidade. */
+.scrolly-stack > * {
+  grid-area: 1 / 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Sem pin nem crossfade: mostra a última frase e a primeira imagem. */
+  .scrolly-phrase {
+    opacity: 0;
+  }
+
+  .scrolly-phrase:last-child {
+    opacity: 1;
+  }
+
+  .scrolly-image {
+    opacity: 0;
+  }
+
+  .scrolly-image:first-child {
+    opacity: 1;
+  }
+}
