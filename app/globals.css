@@ -176,7 +176,9 @@
     background-image: linear-gradient(180deg, rgb(var(--txt)) 0%, rgb(var(--txt) / 0.62) 100%);
   }
 
-  /* Nome no hero — o único texto que recebe o acento cheio. */
+  /* Nome no hero — o único texto que recebe o acento cheio. Um leve brilho
+     (drop-shadow funciona sobre texto transparente, diferente de
+     text-shadow) ajuda esse trecho a "flutuar" sobre o fundo escuro. */
   .grad-text-cool {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
@@ -187,6 +189,7 @@
     );
     background-size: 200% 200%;
     animation: hue 9s ease infinite;
+    filter: drop-shadow(0 0 22px rgb(var(--tone-accent) / 0.3));
   }
 
   /* Chip de tecnologia — neutro em repouso, acento no hover. */
@@ -609,27 +612,29 @@ html.lenis body {
    Scrollytelling do hero (ver <ScrollytellingHero>).
    ============================================================ */
 
-/* Empilha frases e imagens na mesma célula de grade: o container
-   assume o tamanho do maior filho e o GSAP só cuida da opacidade. */
+/* Empilha os passos na mesma célula de grade: o container assume o
+   tamanho do maior filho e o GSAP cuida da entrada/saída de cada um. */
 .scrolly-stack > * {
   grid-area: 1 / 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  /* Sem pin nem crossfade: mostra a última frase e a primeira imagem. */
-  .scrolly-phrase {
-    opacity: 0;
+  /* Sem pin nem crossfade: os passos viram uma lista simples e legível. */
+  .scrolly-stack {
+    display: block;
   }
 
-  .scrolly-phrase:last-child {
-    opacity: 1;
+  .scrolly-step {
+    position: static;
+    margin-bottom: 4rem;
   }
 
-  .scrolly-image {
-    opacity: 0;
+  .scrolly-step:last-child {
+    margin-bottom: 0;
   }
 
-  .scrolly-image:first-child {
-    opacity: 1;
+  .step-ghost,
+  .scrolly-cue {
+    display: none;
   }
 }
