@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react"
 
 /**
- * `rise` — sobe, desfoca e assenta a escala. É a entrada padrão da página.
+ * `rise` — sobe e assenta. É a entrada padrão da página.
  * `wipe` — o bloco se desenha de baixo para cima, como uma cortina.
  */
 type RevealVariant = "rise" | "wipe"
@@ -16,7 +16,14 @@ interface RevealProps {
   className?: string
 }
 
-/** Revela o conteúdo com fade + subida quando ele entra na viewport. */
+/**
+ * Revela o conteúdo quando ele entra na viewport.
+ *
+ * O observador fica no invólucro externo, que nunca é recortado: a cortina
+ * do `wipe` zera a área visível do elemento animado, e o Chrome desconta o
+ * `clip-path` do próprio alvo no IntersectionObserver — observando o alvo,
+ * ele nunca seria considerado visível.
+ */
 export function Reveal({ children, delay = 0, variant = "rise", className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -40,12 +47,13 @@ export function Reveal({ children, delay = 0, variant = "rise", className = "" }
   }, [])
 
   return (
-    <div
-      ref={ref}
-      className={`reveal reveal-${variant} ${visible ? "is-visible" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
+    <div ref={ref} className={className}>
+      <div
+        className={`reveal reveal-${variant} h-full ${visible ? "is-visible" : ""}`}
+        style={{ transitionDelay: `${delay}ms` }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
