@@ -1,6 +1,4 @@
 import { Header } from "@/components/header"
-import { Aurora } from "@/components/aurora"
-import { PointerField } from "@/components/pointer-field"
 import { ScrollField } from "@/components/scroll-field"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SmoothScroll } from "@/components/smooth-scroll"
@@ -18,10 +16,8 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       <SmoothScroll />
-      <PointerField />
       <ScrollField />
       <ScrollProgress />
-      <Aurora />
       <Header />
       <main className="relative z-10">
         <ScrollytellingHero />
