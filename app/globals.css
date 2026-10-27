@@ -3,64 +3,61 @@
 @tailwind utilities;
 
 /* ============================================================
-   Sistema de design "Grafite" — escala de cinza editorial com o índigo
-   como único ponto de cor.
+   Sistema de design "Brasa" — tinta quente sobre papel escuro, com um
+   único laranja-brasa como ponto de cor.
 
-   A regra do sistema: superfícies e textos são neutros; o índigo aparece
-   só onde há intenção — ação, foco, hover e ênfase. Se a cor estiver em
-   toda parte, ela deixa de significar alguma coisa.
+   Regras do sistema:
+   - Superfícies e textos são neutros (levemente quentes, nunca azulados).
+   - A brasa aparece só onde há intenção: ação, foco, estado ativo e os
+     trechos em serifa itálica dos títulos.
+   - Três vozes tipográficas: Geist (texto e títulos), Geist Mono
+     (etiquetas, metadados, números) e Instrument Serif itálica (ênfase).
    ============================================================ */
 
 @layer base {
   :root {
-    /* --- Superfícies e texto (tema claro) --- */
-    --bg: 250 250 250;
-    --bg-2: 244 244 245;
-    --panel: 255 255 255;
-    --panel-2: 247 247 248;
-    --line: 228 228 231;
-    --txt: 9 9 11;
-    --txt-soft: 82 82 91;
-    --txt-dim: 113 113 122;
+    /* --- Superfícies e texto (tema claro: papel) --- */
+    --bg: 245 243 238;
+    --bg-2: 238 235 228;
+    --panel: 251 250 247;
+    --panel-2: 241 238 232;
+    --line: 222 218 209;
+    --txt: 22 21 19;
+    --txt-soft: 84 80 73;
+    --txt-dim: 122 117 108;
 
-    /* --- Rampa de tons ---
-       Dois tons de acento e quatro de grafite. Os componentes escolhem um
-       par pela API `accentVars`; o acento entra apenas nos pontos de ênfase. */
-    --tone-accent: 79 70 229;
-    --tone-accent-soft: 99 102 241;
-    --tone-slate: 71 85 105;
-    --tone-graphite: 82 82 91;
-    --tone-graphite-deep: 63 63 70;
-    --tone-graphite-soft: 113 113 122;
+    /* --- Brasa (escurecida no claro para manter 4.5:1 em texto) --- */
+    --tone-accent: 196 60 18;
+    --tone-accent-soft: 234 98 52;
+    --tone-live: 22 163 74;
+
+    /* --- Realce de código no cartão do hero --- */
+    --code-key: 196 60 18;
+    --code-type: 37 99 235;
+    --code-str: 21 128 61;
+    --code-ann: 161 98 7;
 
     /* --- Tokens shadcn/ui (HSL) --- */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 4%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
-    --primary: 243 75% 59%;
+    --background: 43 23% 95%;
+    --foreground: 40 7% 8%;
+    --card: 45 27% 98%;
+    --card-foreground: 40 7% 8%;
+    --popover: 45 27% 98%;
+    --popover-foreground: 40 7% 8%;
+    --primary: 15 83% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 10% 4%;
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
-    --accent: 243 75% 59%;
+    --secondary: 40 19% 93%;
+    --secondary-foreground: 40 7% 8%;
+    --muted: 40 19% 93%;
+    --muted-foreground: 37 6% 45%;
+    --accent: 15 83% 42%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 243 75% 59%;
+    --border: 41 16% 84%;
+    --input: 41 16% 84%;
+    --ring: 15 83% 42%;
     --radius: 0.875rem;
-
-    /* --- Campo do ponteiro (ver <PointerField>). Neutro por padrão. --- */
-    --ptr-x: 50; /* 0 a 100, posição horizontal na viewport */
-    --ptr-y: 50; /* 0 a 100, posição vertical na viewport  */
-    --ptr-dx: 0; /* -1 a 1, distância do centro na horizontal */
-    --ptr-dy: 0; /* -1 a 1, distância do centro na vertical   */
-    --ptr-glow: 0; /* 0 a 1, intensidade do facho de luz */
 
     /* --- Campo da rolagem (ver <ScrollField>) --- */
     --scroll-progress: 0; /* 0 a 1, quanto da página já passou */
@@ -68,44 +65,45 @@
   }
 
   .dark {
-    /* --- Superfícies e texto (tema escuro) --- */
-    --bg: 9 9 11;
-    --bg-2: 15 15 17;
-    --panel: 20 20 23;
-    --panel-2: 28 28 32;
-    --line: 39 39 42;
-    --txt: 250 250 250;
-    --txt-soft: 161 161 170;
-    --txt-dim: 113 113 122;
+    /* --- Superfícies e texto (tema escuro: carvão) --- */
+    --bg: 10 10 9;
+    --bg-2: 16 16 14;
+    --panel: 20 19 17;
+    --panel-2: 28 27 24;
+    --line: 40 38 35;
+    --txt: 237 234 228;
+    --txt-soft: 170 166 158;
+    --txt-dim: 118 114 107;
 
-    /* Sobre o grafite quase-preto, os tons clareiam para manter o contraste. */
-    --tone-accent: 99 102 241;
-    --tone-accent-soft: 129 140 248;
-    --tone-slate: 148 163 184;
-    --tone-graphite: 161 161 170;
-    --tone-graphite-deep: 113 113 122;
-    --tone-graphite-soft: 212 212 216;
+    --tone-accent: 255 106 61;
+    --tone-accent-soft: 255 146 104;
+    --tone-live: 74 222 128;
+
+    --code-key: 255 128 90;
+    --code-type: 125 185 255;
+    --code-str: 163 230 140;
+    --code-ann: 250 204 110;
 
     /* --- Tokens shadcn/ui (HSL) --- */
-    --background: 240 6% 4%;
-    --foreground: 0 0% 98%;
-    --card: 240 6% 8%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 6% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 239 84% 67%;
+    --background: 60 5% 4%;
+    --foreground: 40 18% 91%;
+    --card: 40 8% 7%;
+    --card-foreground: 40 18% 91%;
+    --popover: 40 8% 7%;
+    --popover-foreground: 40 18% 91%;
+    --primary: 14 100% 62%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 239 84% 67%;
+    --secondary: 43 7% 10%;
+    --secondary-foreground: 40 18% 91%;
+    --muted: 43 7% 10%;
+    --muted-foreground: 39 5% 64%;
+    --accent: 14 100% 62%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 41%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 239 84% 67%;
+    --border: 36 7% 15%;
+    --input: 36 7% 15%;
+    --ring: 14 100% 62%;
   }
 }
 
@@ -115,22 +113,21 @@
   }
 
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 6.5rem;
+    scroll-padding-top: 6rem;
   }
 
   body {
-    @apply bg-page text-ink antialiased;
-    font-family: var(--font-outfit), system-ui, sans-serif;
+    @apply bg-page font-sans text-ink antialiased;
     overflow-x: hidden;
+    font-feature-settings: "ss01", "cv11";
   }
 
   h1,
   h2,
   h3,
+  h4,
   .font-display {
-    font-family: var(--font-sora), system-ui, sans-serif;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
   }
 }
 
@@ -139,206 +136,78 @@
    ============================================================ */
 
 @layer components {
-  /* ----------------------------------------------------------
-     Cartão. Em repouso é grafite puro: a profundidade vem da sombra
-     neutra, não de cor. O acento só aparece quando o usuário chega perto.
-     ---------------------------------------------------------- */
-  .neon-card {
-    @apply relative rounded-2xl border border-line bg-panel/80 backdrop-blur-xl transition-all duration-500;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 18px 40px -30px rgb(0 0 0 / 0.35);
+  /* Etiqueta em mono: "(01) Sobre". O ponto de brasa marca a seção. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-mono text-[0.72rem] font-medium uppercase tracking-[0.18em] text-ink-dim;
   }
 
-  .dark .neon-card {
-    box-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 22px 48px -32px rgb(0 0 0 / 0.9);
+  .eyebrow::before {
+    content: "";
+    @apply h-1.5 w-1.5 rounded-full bg-tone-accent;
   }
 
-  /* No hover a borda acende no acento e a sombra ganha um véu índigo.
-     O `--accent-rgb` do cartão entra só aqui, como variação sutil de tom. */
-  .neon-card:hover {
-    border-color: rgb(var(--tone-accent) / 0.55);
-    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 28px 60px -34px rgb(var(--accent-rgb) / 0.45),
-      0 12px 32px -28px rgb(var(--accent-2-rgb) / 0.4), 0 0 0 1px rgb(var(--tone-accent) / 0.12);
-    transform: translateY(-4px);
+  /* Trecho em serifa itálica dentro de um título. A serifa tem a altura-x
+     menor que a Geist, então ganha um pouco de corpo para equilibrar. */
+  .accent-serif {
+    @apply font-serif font-normal italic text-tone-accent;
+    font-size: 1.08em;
+    letter-spacing: -0.01em;
   }
 
-  /* Etiqueta numerada acima dos títulos — sempre no acento. */
-  .section-tag {
-    @apply inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5
-           text-[0.7rem] font-semibold uppercase tracking-[0.22em] backdrop-blur-md;
-    border-color: rgb(var(--tone-accent) / 0.3);
-    background-color: rgb(var(--tone-accent) / 0.08);
-    color: rgb(var(--tone-accent));
+  /* Superfície padrão: borda fina e um degrau de luz no topo. */
+  .surface {
+    @apply relative rounded-3xl border border-line bg-panel;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04), 0 30px 60px -40px rgb(0 0 0 / 0.35);
   }
 
-  /* Títulos de seção: tinta, não cor. A hierarquia vem do peso e do contraste. */
-  .grad-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(180deg, rgb(var(--txt)) 0%, rgb(var(--txt) / 0.62) 100%);
+  .dark .surface {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05), 0 40px 80px -50px rgb(0 0 0 / 0.9);
   }
 
-  /* Nome no hero — o único texto que recebe o acento cheio. Um leve brilho
-     (drop-shadow funciona sobre texto transparente, diferente de
-     text-shadow) ajuda esse trecho a "flutuar" sobre o fundo escuro. */
-  .grad-text-cool {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      120deg,
-      rgb(var(--tone-accent)) 0%,
-      rgb(var(--tone-accent-soft)) 50%,
-      rgb(var(--tone-accent)) 100%
-    );
-    background-size: 200% 200%;
-    animation: hue 9s ease infinite;
-    filter: drop-shadow(0 0 22px rgb(var(--tone-accent) / 0.3));
+  /* Pílula de tecnologia. */
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-panel-2/60 px-3 py-1 font-mono text-[0.72rem] text-ink-soft transition-colors duration-300;
   }
 
-  /* Chip de tecnologia — neutro em repouso, acento no hover. */
-  .neon-chip {
-    @apply rounded-lg border px-2.5 py-1 text-[0.8rem] font-medium transition-colors duration-300;
-    border-color: rgb(var(--line));
-    background-color: rgb(var(--panel-2) / 0.8);
-    color: rgb(var(--txt-soft));
+  .chip:hover {
+    @apply border-tone-accent/50 text-ink;
   }
 
-  .neon-chip:hover {
-    border-color: rgb(var(--tone-accent) / 0.5);
-    background-color: rgb(var(--tone-accent) / 0.1);
-    color: rgb(var(--tone-accent));
+  /* Botão principal — brasa sólida. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-tone-accent px-6 py-3 text-[0.95rem] font-medium text-white transition-all duration-300;
+    box-shadow: 0 12px 30px -14px rgb(var(--tone-accent) / 0.9);
   }
 
-  /* Ícone em bloco. Sempre no acento: são eles que pontuam a página de cor. */
-  .neon-icon {
-    @apply grid place-items-center rounded-xl text-white;
-    background-image: linear-gradient(135deg, rgb(var(--tone-accent)), rgb(var(--tone-accent-soft)));
-    box-shadow: 0 10px 24px -14px rgb(var(--tone-accent) / 0.9);
-  }
-
-  /* Botão principal — índigo sólido, sem gradiente. */
-  .btn-neon {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3 text-[0.95rem] font-semibold
-           text-white transition-all duration-300;
-    background-color: rgb(var(--tone-accent));
-    box-shadow: 0 10px 26px -14px rgb(var(--tone-accent) / 0.9);
-  }
-
-  .btn-neon:hover {
-    transform: translateY(-2px);
+  .btn-primary:hover {
+    @apply -translate-y-0.5;
     background-color: rgb(var(--tone-accent-soft));
-    box-shadow: 0 18px 36px -16px rgb(var(--tone-accent));
   }
 
-  /* Botão secundário — contorno neutro, preenche em grafite no hover. */
+  .dark .btn-primary {
+    @apply text-[#160a05];
+  }
+
+  /* Botão secundário — contorno fino. */
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border px-7 py-3 text-[0.95rem]
-           font-semibold text-ink transition-all duration-300;
-    border-color: rgb(var(--line));
-    background-color: rgb(var(--panel) / 0.6);
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-panel/60 px-6 py-3 text-[0.95rem] font-medium text-ink backdrop-blur transition-all duration-300;
   }
 
   .btn-ghost:hover {
-    transform: translateY(-2px);
-    border-color: rgb(var(--txt) / 0.28);
-    background-color: rgb(var(--panel-2));
+    @apply -translate-y-0.5 border-ink/30 bg-panel-2;
   }
 
-  /* ----------------------------------------------------------
-     Facho de luz que persegue o ponteiro pelo fundo da página.
-     É um disco de tamanho fixo movido por translate3d — nada de
-     redesenhar gradiente a cada quadro.
-     ---------------------------------------------------------- */
-  .spotlight {
-    @apply pointer-events-none fixed left-0 top-0 rounded-full;
-    height: 62vmax;
-    width: 62vmax;
-    transform: translate3d(calc(var(--ptr-x) * 1vw - 50%), calc(var(--ptr-y) * 1vh - 50%), 0);
-    will-change: transform, opacity;
+  /* Link sublinhado que cresce da esquerda. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* Halo de acento: cola no ponteiro. */
-  .spotlight-lead {
-    background-image: radial-gradient(
-      circle,
-      rgb(var(--tone-accent) / 0.26) 0%,
-      rgb(var(--tone-accent-soft) / 0.1) 38%,
-      transparent 68%
-    );
-    opacity: calc(var(--ptr-glow) * 0.7);
-  }
-
-  /* Halo frio que chega atrasado: a transição mais lenta o faz ficar para
-     trás, e o descompasso entre os dois é o que distorce a luz. Num sistema
-     de um acento só, a separação vem da temperatura, não de outra cor. */
-  .spotlight-trail {
-    height: 44vmax;
-    width: 44vmax;
-    background-image: radial-gradient(
-      circle,
-      rgb(var(--tone-slate) / 0.16) 0%,
-      rgb(var(--tone-accent) / 0.08) 40%,
-      transparent 66%
-    );
-    opacity: calc(var(--ptr-glow) * 0.55);
-    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  /* ----------------------------------------------------------
-     Inclinação 3D dos cartões (ver <Tilt>).
-     ---------------------------------------------------------- */
-  .tilt {
-    height: 100%;
-    perspective: 900px;
-  }
-
-  .tilt-inner {
-    /* Repouso. O <Tilt> sobrescreve no mouse; o @media abaixo cuida do toque. */
-    --tilt-rx: 0deg;
-    --tilt-ry: 0deg;
-    --tilt-px: 0px;
-    --tilt-py: 0px;
-    --tilt-on: 0;
-    --tilt-ease: 620ms;
-
-    position: relative;
-    height: 100%;
-    transform: rotateX(var(--tilt-rx)) rotateY(var(--tilt-ry)) translate3d(0, 0, 0);
-    transition: transform var(--tilt-ease) cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  /* O `will-change` só entra durante a interação: promover as dezenas de
-     cartões da página o tempo todo custaria memória de vídeo à toa. */
-  .tilt:hover .tilt-inner,
-  .tilt:hover .tilt-glare::before {
-    will-change: transform;
-  }
-
-  /* Reflexo por cima do cartão, recortado no mesmo raio da borda. */
-  .tilt-glare {
-    @apply pointer-events-none absolute inset-0 z-[5] overflow-hidden rounded-2xl;
-    opacity: var(--tilt-on);
-    transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .tilt-glare::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 340px;
-    width: 340px;
-    margin: -170px 0 0 -170px;
-    border-radius: 9999px;
-    background-image: radial-gradient(
-      circle,
-      rgb(var(--tone-accent) / 0.2) 0%,
-      rgb(var(--tone-accent-soft) / 0.07) 45%,
-      transparent 70%
-    );
-    transform: translate3d(var(--tilt-px), var(--tilt-py), 0);
-  }
-
-  /* .neon-card sobe 6px no hover; o reflexo sobe junto para não descolar. */
-  .tilt:hover .tilt-glare {
-    transform: translateY(-4px);
+  .link-underline:hover {
+    background-size: 100% 1px;
   }
 
   /* ----------------------------------------------------------
@@ -347,101 +216,57 @@
 
   /* Escala em X em vez de mudar a largura: sem layout, só composição. */
   .scroll-progress-bar {
-    @apply block h-full w-full origin-left;
-    background-image: linear-gradient(90deg, rgb(var(--tone-accent)), rgb(var(--tone-accent-soft)));
-    box-shadow: 0 0 16px -2px rgb(var(--tone-accent) / 0.65);
+    @apply block h-full w-full origin-left bg-tone-accent;
     transform: scaleX(var(--scroll-progress));
   }
 
-  /* A faixa se inclina e se deforma conforme a velocidade da rolagem.
-     O -1.4deg e o scale que estavam em classes utilitárias vieram para cá
-     porque agora precisam se compor com o termo dinâmico. */
+  /* A faixa se deforma conforme a velocidade da rolagem. */
   .marquee-band {
-    transform: rotate(calc(-1.4deg + var(--scroll-speed) * 1.1deg)) scale(1.04)
-      skewX(calc(var(--scroll-speed) * -7deg));
+    transform: skewX(calc(var(--scroll-speed) * -10deg));
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   /* Empurra o conteúdo a favor da rolagem, em camada separada para não
      disputar o `transform` com a animação `scroll-x`. */
   .marquee-push {
-    transform: translate3d(calc(var(--scroll-speed) * -80px), 0, 0);
+    transform: translate3d(calc(var(--scroll-speed) * -120px), 0, 0);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  /* ----------------------------------------------------------
-     Entrada palavra a palavra (ver <RevealWords>).
-     ---------------------------------------------------------- */
-
-  /* A máscara recorta a palavra enquanto ela sobe. O padding compensa as
-     hastes descendentes (g, j, y), que a borda cortaria. */
-  .word-mask {
-    display: inline-block;
-    overflow: hidden;
-    padding-bottom: 0.14em;
-    margin-bottom: -0.14em;
-    vertical-align: bottom;
+  /* Texto vazado (só contorno), usado na faixa e no rodapé. */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(var(--txt) / 0.35);
   }
+}
 
-  .word-rise {
-    display: inline-block;
-    transform: translate3d(0, 110%, 0);
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  }
+/* ============================================================
+   Fundo: grão + grade
+   ============================================================ */
 
-  .word-rise.is-visible {
-    transform: translate3d(0, 0, 0);
-  }
+/* Grão de filme por cima de tudo. Fica num pseudo-elemento fixo para não
+   repintar com a rolagem; o SVG é gerado uma vez e reaproveitado. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark body::after {
+  opacity: 0.07;
 }
 
 /* ============================================================
    Animações
    ============================================================ */
 
-@keyframes hue {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes drift {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(6vw, 8vh, 0) scale(1.25);
-  }
-}
-
-@keyframes bob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
 @keyframes scroll-x {
   to {
     transform: translateX(-50%);
-  }
-}
-
-@keyframes spin-slow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
   }
 }
 
@@ -450,50 +275,49 @@
    ------------------------------------------------------------ */
 .reveal {
   opacity: 0;
-  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.85s cubic-bezier(0.22, 1, 0.36, 1), clip-path 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Sobe, entra em foco e assenta a escala — o bloco parece se aproximar. */
+/* Sobe e assenta. */
 .reveal-rise {
-  transform: translate3d(0, 38px, 0) scale(0.97);
-  filter: blur(6px);
+  transform: translate3d(0, 32px, 0);
 }
 
-/* Cortina: o conteúdo se desenha de baixo para cima, sem desfoque. */
+/* Cortina: o conteúdo se desenha de baixo para cima. */
 .reveal-wipe {
-  transform: translate3d(0, 22px, 0);
+  transform: translate3d(0, 18px, 0);
   clip-path: inset(0 0 100% 0);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-  filter: none;
   clip-path: inset(0 0 0 0);
 }
 
 /* ------------------------------------------------------------
-   Parallax por rolagem (ver <ScrollDrift>).
-
-   `--drift` vai de -1 a 1 conforme o elemento atravessa a tela. O valor
-   neutro é 0, então sem JS o elemento fica exatamente onde deveria — só a
-   escala extra permanece, e ela existe justamente para dar margem ao
-   deslocamento sem revelar as bordas da moldura.
+   Entrada palavra a palavra (ver <RevealWords>).
    ------------------------------------------------------------ */
-.scroll-zoom {
-  --drift: 0;
-  transform: scale(1.1) translate3d(0, calc(var(--drift) * 3%), 0);
+
+/* A máscara recorta a palavra enquanto ela sobe. O padding compensa as
+   hastes descendentes (g, j, y), que a borda cortaria. */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+  vertical-align: bottom;
 }
 
-/* Sem hover não há ponteiro para seguir, então os cartões passam a se inclinar
-   pelo campo global: giroscópio, arrasto do dedo ou rolagem da página. */
-@media (hover: none) {
-  .tilt-inner {
-    --tilt-rx: calc(var(--ptr-dy) * -5.5deg);
-    --tilt-ry: calc(var(--ptr-dx) * 5.5deg);
-    --tilt-ease: 300ms;
-  }
+.word-rise {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.word-rise.is-visible {
+  transform: translate3d(0, 0, 0);
 }
 
 /* ============================================================
@@ -505,7 +329,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(var(--bg-2));
+  background: rgb(var(--bg));
 }
 
 ::-webkit-scrollbar-thumb {
@@ -522,15 +346,14 @@
   color: #fff;
 }
 
-::-moz-selection {
-  background-color: rgb(var(--tone-accent));
-  color: #fff;
-}
-
-/* Cursor nativo do sistema. Botões recebem a mãozinha, como os links. */
 button:not(:disabled),
 [role="button"]:not([aria-disabled="true"]) {
   cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--tone-accent));
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -546,7 +369,6 @@ button:not(:disabled),
   .reveal {
     opacity: 1;
     transform: none;
-    filter: none;
     clip-path: none;
   }
 
@@ -554,28 +376,9 @@ button:not(:disabled),
     transform: none;
   }
 
-  /* A faixa mantém a inclinação de origem, mas para de reagir à rolagem. */
-  .marquee-band {
-    transform: rotate(-1.4deg) scale(1.04);
-  }
-
+  .marquee-band,
   .marquee-push {
     transform: none;
-  }
-
-  /* Nada segue o ponteiro: o fundo fica parado e os cartões, retos. */
-  .spotlight {
-    display: none;
-  }
-
-  .tilt-inner {
-    --tilt-rx: 0deg;
-    --tilt-ry: 0deg;
-    transform: none;
-  }
-
-  .tilt-glare {
-    display: none;
   }
 }
 
@@ -612,29 +415,62 @@ html.lenis body {
    Scrollytelling do hero (ver <ScrollytellingHero>).
    ============================================================ */
 
-/* Empilha os passos na mesma célula de grade: o container assume o
+/* Empilha textos e cenas na mesma célula de grade: o container assume o
    tamanho do maior filho e o GSAP cuida da entrada/saída de cada um. */
 .scrolly-stack > * {
   grid-area: 1 / 1;
 }
 
+/* Antes do JS carregar, só o primeiro passo e a primeira cena aparecem —
+   sem isso o HTML do servidor mostraria os quatro sobrepostos. O GSAP
+   assume a visibilidade com estilos inline depois de montar. */
+@media (prefers-reduced-motion: no-preference) {
+  .scrolly-step:not(:first-child),
+  .scrolly-scene:not(:first-child) {
+    visibility: hidden;
+  }
+}
+
+/* Realce de sintaxe do cartão de código. */
+.tok-key {
+  color: rgb(var(--code-key));
+}
+.tok-type {
+  color: rgb(var(--code-type));
+}
+.tok-str {
+  color: rgb(var(--code-str));
+}
+.tok-ann {
+  color: rgb(var(--code-ann));
+}
+
 @media (prefers-reduced-motion: reduce) {
-  /* Sem pin nem crossfade: os passos viram uma lista simples e legível. */
+  /* Sem pin nem troca de cena: os textos viram uma lista simples e só a
+     primeira cena (o retrato) fica à mostra. */
   .scrolly-stack {
     display: block;
   }
 
   .scrolly-step {
-    position: static;
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
   }
 
   .scrolly-step:last-child {
     margin-bottom: 0;
   }
 
-  .step-ghost,
-  .scrolly-cue {
+  .scrolly-scene:not(:first-child),
+  .scrolly-bar {
     display: none;
+  }
+}
+
+/* ============================================================
+   Pilha de projetos (ver <Projects>).
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .project-slot {
+    position: static !important;
   }
 }
