@@ -1,43 +1,45 @@
-import type React from "react"
 import type { ReactNode } from "react"
 import { Reveal } from "@/components/reveal"
 
-/**
- * Tons do sistema. Os nomes descrevem o papel, não a cor: assim a paleta pode
- * mudar sem que os componentes passem a mentir sobre o que pedem.
- * Os valores reais mudam conforme o tema (ver globals.css).
- */
-export type Accent = "accent" | "accent-soft" | "slate" | "graphite" | "graphite-deep" | "graphite-soft"
-
-/** Referência CSS ao tom, ex.: rgb(var(--tone-accent)). */
-export function accentColor(accent: Accent, alpha?: number) {
-  return alpha === undefined ? `rgb(var(--tone-${accent}))` : `rgb(var(--tone-${accent}) / ${alpha})`
-}
-
-/** Variáveis consumidas por .neon-card e .section-tag. */
-export function accentVars(accent: Accent, accent2: Accent = accent): React.CSSProperties {
-  return {
-    "--accent-rgb": `var(--tone-${accent})`,
-    "--accent-2-rgb": `var(--tone-${accent2})`,
-  } as React.CSSProperties
-}
-
 interface SectionHeadingProps {
-  /** Etiqueta numerada, ex.: "01 — Sobre" */
-  tag: string
-  accent: Accent
+  /** Número da seção, ex.: "01" */
+  index: string
+  /** Nome curto da seção, ex.: "Sobre" */
+  label: string
   title: ReactNode
-  description?: string
+  description?: ReactNode
+  /** Conteúdo extra alinhado à direita do título (desktop). */
+  aside?: ReactNode
 }
 
-export function SectionHeading({ tag, accent, title, description }: SectionHeadingProps) {
+/**
+ * Cabeçalho editorial das seções: uma régua com o número e o nome em mono,
+ * o título grande à esquerda e, opcionalmente, a descrição ou um extra à
+ * direita. Trechos em destaque do título usam `.accent-serif`.
+ */
+export function SectionHeading({ index, label, title, description, aside }: SectionHeadingProps) {
   return (
-    <Reveal variant="wipe" className="mx-auto mb-16 max-w-3xl text-center">
-      <span className="section-tag" style={accentVars(accent)}>
-        {tag}
-      </span>
-      <h2 className="mt-5 text-4xl font-extrabold leading-[1.08] text-ink sm:text-5xl">{title}</h2>
-      {description && <p className="mx-auto mt-5 max-w-2xl text-lg text-ink-soft">{description}</p>}
-    </Reveal>
+    <div className="mb-14 sm:mb-20">
+      <Reveal variant="wipe">
+        <div className="flex items-center gap-4 border-t border-line pt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-dim">
+          <span className="text-tone-accent">({index})</span>
+          <span>{label}</span>
+        </div>
+      </Reveal>
+
+      <div className="mt-8 grid gap-6 lg:grid-cols-12 lg:items-end">
+        <Reveal className="lg:col-span-7">
+          <h2 className="text-balance text-[2.6rem] font-semibold leading-[1.02] text-ink sm:text-6xl lg:text-7xl">
+            {title}
+          </h2>
+        </Reveal>
+        {(description || aside) && (
+          <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
+            {description && <p className="text-pretty text-base leading-relaxed text-ink-soft sm:text-lg">{description}</p>}
+            {aside}
+          </Reveal>
+        )}
+      </div>
+    </div>
   )
 }
