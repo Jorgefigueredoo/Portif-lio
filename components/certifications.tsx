@@ -1,92 +1,87 @@
-import { Award, GraduationCap } from "lucide-react"
+import { GraduationCap } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { Tilt } from "@/components/tilt"
-import { SectionHeading, accentVars, type Accent } from "@/components/section-heading"
+import { SectionHeading } from "@/components/section-heading"
+
+const CERTIFICATIONS = [
+  { title: "Java Completo", issuer: "Prof. Nélio Alves · Udemy" },
+  { title: "Spring Boot Avançado (Microsserviços)", issuer: "Treina Recife" },
+  { title: "Formação em Spring Boot", issuer: "DIO" },
+  { title: "Java Básico", issuer: "DIO" },
+  { title: "React Native", issuer: "Treina Recife" },
+  { title: "Formação em Python", issuer: "DIO" },
+  { title: "Python", issuer: "Fundação Bradesco" },
+  { title: "JavaScript", issuer: "DIO" },
+]
+
+const EDUCATION = {
+  title: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+  institution: "Faculdade Senac Pernambuco",
+  period: "Jan 2025 — Jun 2027",
+  status: "Em curso",
+  description:
+    "Formação focada em desenvolvimento de software, banco de dados, engenharia de requisitos, arquitetura de sistemas e metodologias ágeis.",
+}
 
 export function Certifications() {
-  /** Ciclo de cores aplicado aos cartões de certificado. */
-  const palette: Accent[] = ["graphite", "accent", "slate", "accent-soft", "graphite-deep", "graphite-soft"]
-
-  const certifications = [
-    { title: "Java Completo", issuer: "Professor Nélio Alves (Udemy)" },
-    { title: "Spring Boot Avançado (Microsserviços)", issuer: "Treina Recife" },
-    { title: "Formação em Spring Boot", issuer: "DIO" },
-    { title: "Java Básico", issuer: "DIO" },
-    { title: "React Native", issuer: "Treina Recife" },
-    { title: "Formação em Python", issuer: "DIO" },
-    { title: "Python", issuer: "Fundação Bradesco" },
-    { title: "JavaScript", issuer: "DIO" },
-  ]
-
-  const education = {
-    title: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
-    institution: "Faculdade Senac Pernambuco",
-    period: "Janeiro 2025 - Junho 2027",
-    status: "Em curso",
-    description:
-      "Formação focada em desenvolvimento de software, banco de dados, engenharia de requisitos, arquitetura de sistemas e metodologias ágeis.",
-  }
-
   return (
-    <section id="certifications" className="relative py-24">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section id="certifications" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <SectionHeading
-          tag="05 — Formação"
-          accent="accent"
-          title={<>Formação & <span className="grad-text">Certificações</span></>}
-          description="Formação acadêmica e cursos que venho realizando para me especializar no desenvolvimento Full Stack."
+          index="05"
+          label="Formação"
+          title={
+            <>
+              Sempre <span className="accent-serif">aprendendo.</span>
+            </>
+          }
+          description="Formação acadêmica e cursos que venho fazendo para me especializar no desenvolvimento Full Stack."
         />
 
-        {/* Formação acadêmica em destaque */}
-        <Reveal>
-          <div className="relative mb-8 overflow-hidden rounded-2xl bg-grad-accent p-[2px]">
-            <div className="rounded-[calc(2rem-2px)] bg-page/90 p-8 backdrop-blur-xl sm:p-10">
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-                <span className="neon-icon h-16 w-16 flex-shrink-0" style={accentVars("accent", "graphite-deep")}>
-                  <GraduationCap className="h-8 w-8" />
+        <div className="grid gap-6 lg:grid-cols-12">
+          {/* Formação acadêmica */}
+          <Reveal className="lg:col-span-5">
+            <div className="surface relative h-full overflow-hidden p-7 sm:p-9">
+              <div
+                aria-hidden
+                className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-tone-accent/15 blur-3xl"
+              />
+              <div className="relative flex items-center justify-between">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-tone-accent text-white dark:text-[#160a05]">
+                  <GraduationCap className="h-6 w-6" />
                 </span>
-
-                <div className="flex-1">
-                  <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                    <h3 className="font-display text-2xl font-bold text-ink">{education.title}</h3>
-                    <span className="w-fit rounded-full border border-line bg-panel-2/70 px-4 py-1.5 text-sm text-ink-dim">
-                      {education.period}
-                    </span>
-                  </div>
-
-                  <p className="mb-3 font-display text-lg font-bold text-tone-accent">{education.institution}</p>
-                  <p className="leading-relaxed text-ink-soft">{education.description}</p>
-
-                  <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-tone-accent-soft/40 bg-tone-accent-soft/10 px-4 py-1.5 text-sm font-bold text-tone-accent-soft">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-tone-accent-soft" />
-                    {education.status}
-                  </span>
-                </div>
+                <span className="inline-flex items-center gap-2 rounded-full border border-tone-live/40 bg-tone-live/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-tone-live">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-tone-live" />
+                  {EDUCATION.status}
+                </span>
               </div>
+
+              <p className="relative mt-10 font-mono text-xs uppercase tracking-[0.14em] text-ink-dim">{EDUCATION.period}</p>
+              <h3 className="relative mt-3 text-2xl font-semibold leading-tight text-ink sm:text-3xl">{EDUCATION.title}</h3>
+              <p className="relative mt-2 font-serif text-xl italic text-tone-accent">{EDUCATION.institution}</p>
+              <p className="relative mt-5 leading-relaxed text-ink-soft">{EDUCATION.description}</p>
             </div>
+          </Reveal>
+
+          {/* Certificados */}
+          <div className="lg:col-span-7">
+            <ul className="grid border-t border-line sm:grid-cols-2 sm:gap-x-8">
+              {CERTIFICATIONS.map((cert, index) => (
+                <li key={cert.title}>
+                  <Reveal delay={(index % 2) * 80}>
+                    <div className="group flex items-start gap-4 border-b border-line py-5">
+                      <span className="pt-1 font-mono text-[11px] text-ink-dim transition-colors group-hover:text-tone-accent">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block font-medium leading-snug text-ink">{cert.title}</span>
+                        <span className="mt-1 block text-sm text-ink-dim">{cert.issuer}</span>
+                      </span>
+                    </div>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
           </div>
-        </Reveal>
-
-        {/* Certificados */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {certifications.map((cert, index) => {
-            const accent = palette[index % palette.length]
-            const accent2 = palette[(index + 2) % palette.length]
-
-            return (
-              <Reveal key={cert.title} delay={(index % 4) * 70}>
-                <Tilt strength={13}>
-                  <div className="neon-card h-full p-6" style={accentVars(accent, accent2)}>
-                    <span className="neon-icon mb-4 h-11 w-11">
-                      <Award className="h-5 w-5" />
-                    </span>
-                    <h4 className="mb-1.5 font-display text-base font-bold leading-tight text-ink">{cert.title}</h4>
-                    <p className="text-sm text-ink-dim">{cert.issuer}</p>
-                  </div>
-                </Tilt>
-              </Reveal>
-            )
-          })}
         </div>
       </div>
     </section>
