@@ -8,7 +8,7 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600)
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 5)
     window.addEventListener("scroll", onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener("scroll", onScroll)
@@ -18,11 +18,11 @@ export function BackToTop() {
     <a
       href="#home"
       aria-label="Voltar ao topo"
-      className={`fixed bottom-6 right-6 z-40 grid h-12 w-12 place-items-center rounded-lg bg-tone-accent text-white shadow-[0_12px_28px_-12px_rgb(var(--tone-accent))] transition-all duration-300 ${
+      className={`fixed bottom-5 right-5 z-40 grid h-11 w-11 place-items-center rounded-full border border-line bg-panel/80 text-ink backdrop-blur-xl transition-all duration-500 hover:border-tone-accent hover:text-tone-accent ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >
-      <ArrowUp className="h-5 w-5" />
+      <ArrowUp className="h-4 w-4" />
     </a>
   )
 }
