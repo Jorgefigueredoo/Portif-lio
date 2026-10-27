@@ -3,30 +3,31 @@
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => {
     setMounted(true)
   }, [])
 
+  // Reserva o espaço antes de montar para o cabeçalho não pular.
   if (!mounted) {
-    return null
+    return <span className="h-10 w-10" />
   }
 
+  const isDark = resolvedTheme === "dark"
+
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="relative h-10 w-10 rounded-lg border border-line bg-panel-2 text-ink-soft transition-colors hover:border-tone-accent/50 hover:bg-tone-accent/10 hover:text-tone-accent"
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Mudar para tema claro" : "Mudar para tema escuro"}
+      className="relative grid h-10 w-10 place-items-center rounded-xl border border-line bg-panel text-ink-soft transition-colors hover:border-tone-accent/50 hover:text-ink"
     >
-      <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      <span className="sr-only">Alternar tema</span>
-    </Button>
+      <Sun className="h-[18px] w-[18px] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-[18px] w-[18px] rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100" />
+    </button>
   )
 }
