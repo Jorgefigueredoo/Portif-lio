@@ -1,159 +1,197 @@
-import { ArrowUpRight } from "lucide-react"
-import Image from "next/image"
-import { Reveal } from "@/components/reveal"
-import { Tilt } from "@/components/tilt"
-import { ScrollDrift } from "@/components/scroll-drift"
-import { SectionHeading, accentVars, accentColor, type Accent } from "@/components/section-heading"
+"use client"
 
+import { useEffect, useRef } from "react"
+import Image from "next/image"
+import { ArrowUpRight, Github } from "lucide-react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { SectionHeading } from "@/components/section-heading"
+
+gsap.registerPlugin(ScrollTrigger)
+
+const PROJECTS: {
+  title: string
+  kind: string
+  description: string
+  image: string
+  technologies: string[]
+  url: string
+  /** Imagens que são logotipos, não capturas de tela: inteiras, sem corte. */
+  logo?: boolean
+}[] = [
+  {
+    title: "Beacon Navigator",
+    kind: "Plataforma web full stack",
+    description:
+      "Aplicação completa com login Google (OAuth2), gestão de beacons e locais, perfil de usuário editável, rotas protegidas por JWT e filtros avançados — front e back integrados com foco em segurança.",
+    image: "/images/beacon-navigator.webp",
+    logo: true,
+    technologies: ["Java", "Spring Boot", "React", "MySQL", "OAuth2", "JWT"],
+    url: "https://github.com/Jorgefigueredoo",
+  },
+  {
+    title: "Conecta Hub",
+    kind: "Rastreamento AgTech",
+    description:
+      "Plataforma para agricultores rastrearem sementes e insumos, com dados hierárquicos, regras de negócio personalizadas e relatórios analíticos. API RESTful que conecta fornecedores, agricultores e operadores.",
+    image: "/images/ConectaHub.webp",
+    technologies: ["Java", "Spring Boot", "React", "MySQL", "API REST"],
+    url: "https://github.com/Jorgefigueredoo/Back-End-ConectaHub.git",
+  },
+  {
+    title: "Atividades Complementares",
+    kind: "Plataforma acadêmica",
+    description:
+      "Gestão de horas complementares com perfis de aluno, coordenador e administrador, upload e validação de certificados, cálculo automático de horas, dashboard analítico e aprovação multinível.",
+    image: "/images/atividades-complementares.webp",
+    logo: true,
+    technologies: ["Java", "Spring Boot", "React", "MySQL", "Upload de arquivos"],
+    url: "https://github.com/Jorgefigueredoo",
+  },
+  {
+    title: "Agendamento para Barbearia",
+    kind: "Sistema de agendamentos",
+    description:
+      "Gestão de agendamentos com controle de horários, notificações automáticas e painel administrativo de agenda — pensado para ser fluido tanto para clientes quanto para administradores.",
+    image: "/images/barbearia.webp",
+    technologies: ["React", "JavaScript", "APIs REST"],
+    url: "https://github.com/Jorgefigueredoo",
+  },
+  {
+    title: "Fisioterapia Pedro Santos",
+    kind: "Landing page · cliente",
+    description:
+      "Landing page para um fisioterapeuta apresentar serviços e especialidades e facilitar o contato com pacientes. Design responsivo, navegação direta e comunicação clara para captar novos atendimentos.",
+    image: "/images/fisioterapiaLD.webp",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    url: "https://fisioterapiapedrosantos.vercel.app/",
+  },
+  {
+    title: "Landing Pages Personalizadas",
+    kind: "Páginas sob medida",
+    description:
+      "Páginas institucionais e de conversão responsivas, com design moderno, SEO e integração com analytics — soluções sob medida para fortalecer a presença digital de clientes.",
+    image: "/images/landing-pages.webp",
+    technologies: ["HTML5", "CSS3", "JavaScript", "React"],
+    url: "https://github.com/Jorgefigueredoo",
+  },
+]
+
+/**
+ * Projetos em pilha: no desktop cada cartão gruda no topo (`sticky`) e o
+ * seguinte desliza por cima dele. Enquanto é coberto, o cartão de baixo
+ * encolhe e escurece — a mesma timeline com `scrub` do hero, agora por
+ * cartão. No celular os cartões são altos demais para grudar, então viram
+ * uma lista comum.
+ */
 export function Projects() {
-  const projects: {
-    accent: Accent
-    accent2: Accent
-    title: string
-    description: string
-    image: string
-    technologies: string[]
-    liveUrl: string
-  }[] = [
-    {
-      accent: "graphite",
-      accent2: "graphite-deep",
-      title: "Beacon Navigator - Plataforma Web Full Stack",
-      description:
-        "Aplicação completa com autenticação OAuth2 (Login Google), sistema de gerenciamento de beacons e locais, perfil de usuário com edição, rotas protegidas por JWT e filtros avançados. Projeto que integra front-end e back-end com foco em segurança e experiência do usuário.",
-      image: "/images/beacon-navigator.png",
-      technologies: ["Java", "Spring Boot", "React", "MySQL", "OAuth2", "JWT"],
-      liveUrl: "https://github.com/Jorgefigueredoo",
-    },
-    {
-      accent: "accent-soft",
-      accent2: "accent",
-      title: "Conecta Hub - Sistema de Rastreamento AgTech",
-      description:
-        "Plataforma desenvolvida para agricultores rastrearem sementes e insumos, com organização hierárquica de dados, regras de negócio personalizadas e relatórios analíticos. API RESTful robusta que conecta fornecedores, agricultores e operadores.",
-      image: "/images/ConectaHub.png",
-      technologies: ["Java", "Spring Boot", "React", "MySQL", "API REST"],
-      liveUrl: "https://github.com/Jorgefigueredoo/Back-End-ConectaHub.git",
-    },
-    {
-      accent: "accent",
-      accent2: "graphite-deep",
-      title: "Sistema de Gestão de Atividades Complementares",
-      description:
-        "Plataforma acadêmica Full Stack para gestão de atividades complementares, com controle de perfis (aluno, coordenador e administrador), cadastro e validação de horas por categoria, upload e validação de certificados, cálculo automático de horas, dashboard analítico e fluxo de aprovação multinível.",
-      image: "/images/atividades-complementares.png",
-      technologies: ["Java", "Spring Boot", "React", "MySQL", "Upload de Arquivos"],
-      liveUrl: "https://github.com/Jorgefigueredoo",
-    },
-    {
-      accent: "slate",
-      accent2: "graphite-soft",
-      title: "Sistema de Agendamento para Barbearia",
-      description:
-        "Aplicação web para gestão de agendamentos com controle de horários, notificações automáticas e painel administrativo para visualização de agenda. Foco em usabilidade e experiência fluida tanto para clientes quanto para administradores.",
-      image: "/images/barbearia.png",
-      technologies: ["React", "JavaScript", "APIs REST"],
-      liveUrl: "https://github.com/Jorgefigueredoo",
-    },
-    {
-      accent: "graphite-deep",
-      accent2: "graphite",
-      title: "Landing Page Fisioterapeuta",
-      description:
-        "Landing page desenvolvida para um fisioterapeuta, com foco em apresentar serviços, especialidades e facilitar o contato com pacientes. O projeto priorizou um design responsivo, navegação intuitiva e uma comunicação clara, visando melhorar a presença digital e a captação de novos atendimentos.",
-      image: "/images/fisioterapiaLD.png",
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-      liveUrl: "https://fisioterapiapedrosantos.vercel.app/",
-    },
-    {
-      accent: "graphite-soft",
-      accent2: "slate",
-      title: "Landing Pages Personalizadas",
-      description:
-        "Desenvolvimento de páginas institucionais e de conversão responsivas, com design moderno, otimização para SEO e integração com ferramentas de analytics. Soluções sob medida para fortalecer a presença digital de clientes.",
-      image: "/images/landing-pages.png",
-      technologies: ["HTML5", "CSS3", "JavaScript", "React"],
-      liveUrl: "https://github.com/Jorgefigueredoo",
-    },
-  ]
+  const listRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const list = listRef.current
+    if (!list) return
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+    const mm = gsap.matchMedia()
+    mm.add("(min-width: 1024px)", () => {
+      const slots = gsap.utils.toArray<HTMLElement>(".project-slot", list)
+      slots.forEach((slot, i) => {
+        const next = slots[i + 1]
+        if (!next) return
+        const card = slot.querySelector(".project-card")
+        const shade = slot.querySelector(".project-shade")
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: next,
+            start: "top bottom",
+            end: "top top+=120",
+            scrub: true,
+          },
+        })
+        tl.to(card, { scale: 0.92, ease: "none" }, 0).to(shade, { opacity: 0.6, ease: "none" }, 0)
+      })
+    })
+
+    return () => mm.revert()
+  }, [])
 
   return (
-    <section id="projects" className="relative py-24">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section id="projects" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <SectionHeading
-          tag="03 — Portfólio"
-          accent="accent"
-          title={<><span className="grad-text">Projetos</span></>}
-          description="Aqui estão alguns dos projetos que desenvolvi recentemente. Cada um representa um desafio único e uma oportunidade de aprendizado."
+          index="03"
+          label="Projetos"
+          title={
+            <>
+              Trabalhos <span className="accent-serif">selecionados.</span>
+            </>
+          }
+          description="Projetos recentes — cada um com um desafio próprio, do back-end seguro à página que precisa converter."
         />
 
-        <div className="grid gap-7 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <Reveal key={project.title} delay={(index % 2) * 90}>
-              <Tilt strength={7}>
-                <article
-                  className="neon-card group flex h-full flex-col overflow-hidden"
-                  style={accentVars(project.accent, project.accent2)}
-                >
-                  <div className="relative aspect-[3/2] overflow-hidden">
-                    {/* A camada externa desliza com a rolagem; a interna guarda
-                        o zoom do hover. Uma não atropela a outra. */}
-                    <ScrollDrift className="scroll-zoom absolute inset-0">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    </ScrollDrift>
-                    {/* Véu colorido leve, que some no hover para revelar a imagem original */}
-                    <span
-                      aria-hidden
-                      className="absolute inset-0 opacity-20 mix-blend-color transition-opacity duration-500 group-hover:opacity-0"
-                      style={{
-                        backgroundImage: `linear-gradient(135deg, ${accentColor(project.accent)}, ${accentColor(project.accent2)})`,
-                      }}
-                    />
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-0 bottom-0 h-1"
-                      style={{
-                        backgroundImage: `linear-gradient(90deg, ${accentColor(project.accent)}, ${accentColor(project.accent2)})`,
-                      }}
-                    />
-                  </div>
+        <div ref={listRef} className="flex flex-col gap-6 lg:gap-[14vh]">
+          {PROJECTS.map((project, index) => {
+            const isGithub = project.url.includes("github.com")
+            return (
+              <div
+                key={project.title}
+                className="project-slot lg:sticky"
+                style={{ top: `calc(6.5rem + ${index * 12}px)` }}
+              >
+                <article className="project-card surface relative grid origin-top overflow-hidden lg:h-[min(72vh,580px)] lg:grid-cols-12">
+                  {/* Texto */}
+                  <div className="order-2 flex flex-col p-6 sm:p-10 lg:order-1 lg:col-span-5">
+                    <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.16em] text-ink-dim">
+                      <span>
+                        <span className="text-tone-accent">{String(index + 1).padStart(2, "0")}</span> /{" "}
+                        {String(PROJECTS.length).padStart(2, "0")}
+                      </span>
+                      <span>{project.kind}</span>
+                    </div>
 
-                  <div className="flex flex-1 flex-col p-7">
-                    <h3 className="font-display text-xl font-bold leading-snug text-ink">{project.title}</h3>
-                    <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{project.description}</p>
+                    <h3 className="mt-8 text-3xl font-semibold leading-[1.05] text-ink sm:text-4xl lg:mt-auto">
+                      {project.title}
+                    </h3>
+                    <p className="mt-4 text-pretty leading-relaxed text-ink-soft lg:line-clamp-5">{project.description}</p>
 
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-6 flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
-                        <span key={tech} className="neon-chip">
+                        <span key={tech} className="chip">
                           {tech}
                         </span>
                       ))}
                     </div>
 
                     <a
-                      href={project.liveUrl}
+                      href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border-2 px-6 py-2.5 font-bold transition-all duration-300"
-                      style={{
-                        borderColor: accentColor(project.accent, 0.5),
-                        color: accentColor(project.accent),
-                      }}
+                      className="group/link mt-8 inline-flex w-fit items-center gap-2 text-sm font-medium text-ink"
                     >
-                      Ver Projeto
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <span className="grid h-10 w-10 place-items-center rounded-full border border-line transition-all duration-300 group-hover/link:border-tone-accent group-hover/link:bg-tone-accent group-hover/link:text-white">
+                        {isGithub ? <Github className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4" />}
+                      </span>
+                      <span className="link-underline">{isGithub ? "Ver código no GitHub" : "Ver site no ar"}</span>
                     </a>
                   </div>
+
+                  {/* Imagem */}
+                  <div className="relative order-1 m-2 aspect-[16/10] overflow-hidden rounded-[18px] border border-line bg-panel-2 lg:order-2 lg:col-span-7 lg:aspect-auto">
+                    <Image
+                      src={project.image}
+                      alt={`Captura de tela do projeto ${project.title}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      className={`transition-transform ${project.logo ? "object-contain p-10 sm:p-16" : "object-cover object-top"} [transition-duration:1.2s] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.04]`}
+                    />
+                  </div>
+
+                  {/* Véu que escurece o cartão enquanto o próximo passa por cima. */}
+                  <span aria-hidden className="project-shade pointer-events-none absolute inset-0 bg-page opacity-0" />
                 </article>
-              </Tilt>
-            </Reveal>
-          ))}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
