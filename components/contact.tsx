@@ -1,112 +1,112 @@
-import { Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { ArrowUpRight, Check, Copy, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { SectionHeading, accentVars, accentColor, type Accent } from "@/components/section-heading"
+import { RevealWords } from "@/components/reveal-words"
+
+const EMAIL = "jorgeafigueredo@gmail.com"
+
+const CHANNELS = [
+  { Icon: Linkedin, label: "LinkedIn", value: "jorge-antonio", href: "https://www.linkedin.com/in/jorge-antonio-282874303/" },
+  { Icon: Github, label: "GitHub", value: "Jorgefigueredoo", href: "https://github.com/Jorgefigueredoo" },
+  { Icon: Phone, label: "Telefone", value: "+55 (81) 97332-4911", href: "tel:+5581973324911" },
+  { Icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
+]
 
 export function Contact() {
-  const details: {
-    accent: Accent
-    Icon: typeof Mail
-    label: string
-    value: string
-    href: string | null
-  }[] = [
-    { accent: "graphite", Icon: Mail, label: "Email", value: "jorgeafigueredo@gmail.com", href: "mailto:jorgeafigueredo@gmail.com" },
-    { accent: "accent", Icon: Phone, label: "Telefone", value: "+55 (81) 97332-4911", href: "tel:+5581973324911" },
-    { accent: "slate", Icon: MapPin, label: "Localização", value: "Recife, PE - Brasil", href: null },
-  ]
+  const [copied, setCopied] = useState(false)
 
-  const socials: { accent: Accent; Icon: typeof Mail; label: string; href: string }[] = [
-    { accent: "accent", Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/jorge-antonio-282874303/" },
-    { accent: "graphite-deep", Icon: Github, label: "GitHub", href: "https://github.com/Jorgefigueredoo" },
-    { accent: "graphite", Icon: Mail, label: "Email", href: "mailto:jorgeafigueredo@gmail.com" },
-  ]
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1800)
+    } catch {
+      window.location.href = `mailto:${EMAIL}`
+    }
+  }
 
   return (
-    <section id="contact" className="relative py-24">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <SectionHeading
-          tag="06 — Contato"
-          accent="accent"
-          title={<>Vamos <span className="grad-text">Conversar</span></>}
-          description="Entre em contato para conversarmos sobre como posso contribuir com sua equipe."
-        />
+    <section id="contact" className="relative overflow-hidden pb-10 pt-24 sm:pt-32">
+      {/* Brilho de brasa que sobe do rodapé. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgb(var(--tone-accent)/0.16),transparent_70%)]"
+      />
 
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          {/* Informações de contato */}
-          <Reveal>
-            <div className="neon-card h-full p-8 sm:p-10" style={accentVars("graphite", "graphite-deep")}>
-              <h3 className="mb-7 font-display text-2xl font-bold text-ink">Informações de Contato</h3>
-
-              <div className="space-y-4">
-                {details.map(({ accent, Icon, label, value, href }) => {
-                  const content = (
-                    <>
-                      <span className="neon-icon h-12 w-12 flex-shrink-0" style={accentVars(accent)}>
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <span className="min-w-0">
-                        <span className="block text-xs font-bold uppercase tracking-[0.16em] text-ink-dim">{label}</span>
-                        <span className="block break-words font-medium text-ink">{value}</span>
-                      </span>
-                    </>
-                  )
-
-                  return href ? (
-                    <a
-                      key={label}
-                      href={href}
-                      className="flex items-center gap-4 rounded-2xl border border-transparent p-3 transition-all duration-300 hover:translate-x-1.5 hover:border-line hover:bg-panel-2/70"
-                    >
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={label} className="flex items-center gap-4 p-3">
-                      {content}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Redes sociais */}
-          <Reveal delay={100}>
-            <div className="neon-card h-full p-8 sm:p-10" style={accentVars("accent", "graphite-deep")}>
-              <h3 className="mb-7 font-display text-2xl font-bold text-ink">Redes Sociais</h3>
-
-              <div className="space-y-3">
-                {socials.map(({ accent, Icon, label, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-4 rounded-2xl border-2 px-5 py-4 font-bold transition-all duration-300 hover:-translate-y-0.5"
-                    style={{
-                      borderColor: accentColor(accent, 0.35),
-                      backgroundColor: accentColor(accent, 0.07),
-                      color: accentColor(accent),
-                    }}
-                  >
-                    <Icon className="h-5 w-5" />
-                    {label}
-                    <ArrowUpRight className="ml-auto h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Assinatura final */}
-        <Reveal delay={140}>
-          <div className="mt-20 border-t border-line pt-10 text-center">
-            <p className="select-none bg-gradient-to-b from-ink/20 to-ink/[0.03] bg-clip-text font-display text-5xl font-extrabold leading-none text-transparent sm:text-7xl lg:text-8xl">
-              Jorge Antonio
-            </p>
-            <p className="mt-8 text-sm text-ink-dim">© 2026 Jorge Antonio. Todos os direitos reservados.</p>
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
+        <Reveal variant="wipe">
+          <div className="flex items-center gap-4 border-t border-line pt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-dim">
+            <span className="text-tone-accent">(06)</span>
+            <span>Contato</span>
           </div>
         </Reveal>
+
+        <h2 className="mt-12 text-balance text-[3rem] font-semibold leading-[0.98] text-ink sm:text-7xl lg:text-[7.5rem]">
+          <RevealWords text="Vamos construir algo" step={60} />{" "}
+          <RevealWords text="juntos?" delay={280} className="accent-serif" />
+        </h2>
+
+        <Reveal delay={150}>
+          <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft">
+            Quer conversar sobre uma oportunidade, um projeto ou uma ideia? Me mande uma mensagem.
+          </p>
+
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href={`mailto:${EMAIL}`} className="btn-primary !py-4 text-base">
+              <Mail className="h-4 w-4" />
+              Enviar email
+            </a>
+            <button type="button" onClick={copyEmail} className="btn-ghost !py-4 font-mono text-sm">
+              {copied ? <Check className="h-4 w-4 text-tone-live" /> : <Copy className="h-4 w-4" />}
+              {copied ? "Email copiado!" : EMAIL}
+            </button>
+          </div>
+        </Reveal>
+
+        {/* Canais */}
+        <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          {CHANNELS.map(({ Icon, label, value, href }, index) => {
+            const external = href.startsWith("http")
+            return (
+              <Reveal key={label} delay={index * 70} className="h-full">
+                <a
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className="group flex h-full flex-col gap-10 bg-page p-6 transition-colors duration-500 hover:bg-panel sm:p-7"
+                >
+                  <span className="flex items-center justify-between">
+                    <Icon className="h-5 w-5 text-ink-soft transition-colors group-hover:text-tone-accent" />
+                    <ArrowUpRight className="h-4 w-4 text-ink-dim transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-tone-accent" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block font-mono text-[11px] uppercase tracking-[0.16em] text-ink-dim">{label}</span>
+                    <span className="mt-1 block truncate font-medium text-ink">{value}</span>
+                  </span>
+                </a>
+              </Reveal>
+            )
+          })}
+        </div>
+
+        {/* Rodapé */}
+        <footer className="mt-24">
+          <p
+            aria-hidden
+            className="select-none whitespace-nowrap text-center text-[17vw] font-semibold leading-[0.8] tracking-[-0.06em] text-ink/[0.06] lg:text-[13.5rem]"
+          >
+            Jorge Antonio
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-line pt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-dim sm:flex-row">
+            <span>© 2026 Jorge Antonio</span>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-3 w-3" /> Recife, PE — Brasil
+            </span>
+            <span>Next.js · GSAP · Lenis</span>
+          </div>
+        </footer>
       </div>
     </section>
   )
