@@ -22,9 +22,8 @@ const clamp = (value: number, min: number, max: number) => (value < min ? min : 
  *   --scroll-progress  0 a 1, quanto da página já passou
  *   --scroll-speed     -1 a 1, velocidade com sinal (negativo = subindo)
  *
- * Companheiro do <PointerField> e com o mesmo desenho: o evento de scroll só
- * anota o impulso, um único requestAnimationFrame interpola e grava, e o loop
- * se desliga quando tudo assenta. A velocidade decai a cada quadro, então a
+ * O evento de scroll só anota o impulso, um único requestAnimationFrame
+ * interpola e grava, e o loop se desliga quando tudo assenta. A velocidade decai a cada quadro, então a
  * página desacelera sozinha quando o dedo ou a roda param.
  */
 export function ScrollField() {
