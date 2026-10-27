@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* Tokens do portfólio */
+        /* Tokens do portfólio — os valores mudam com o tema (ver globals.css). */
         page: "rgb(var(--bg) / <alpha-value>)",
         "page-2": "rgb(var(--bg-2) / <alpha-value>)",
         panel: "rgb(var(--panel) / <alpha-value>)",
@@ -21,15 +21,11 @@ const config: Config = {
         "ink-soft": "rgb(var(--txt-soft) / <alpha-value>)",
         "ink-dim": "rgb(var(--txt-dim) / <alpha-value>)",
 
-        /* Rampa de tons — os valores mudam com o tema (ver globals.css).
-           Dois tons de acento e quatro de grafite. */
+        /* Brasa: o único ponto de cor do sistema. */
         tone: {
           accent: "rgb(var(--tone-accent) / <alpha-value>)",
           "accent-soft": "rgb(var(--tone-accent-soft) / <alpha-value>)",
-          slate: "rgb(var(--tone-slate) / <alpha-value>)",
-          graphite: "rgb(var(--tone-graphite) / <alpha-value>)",
-          "graphite-deep": "rgb(var(--tone-graphite-deep) / <alpha-value>)",
-          "graphite-soft": "rgb(var(--tone-graphite-soft) / <alpha-value>)",
+          live: "rgb(var(--tone-live) / <alpha-value>)",
         },
 
         /* Tokens shadcn/ui */
@@ -68,20 +64,15 @@ const config: Config = {
         ring: "hsl(var(--ring))",
       },
       fontFamily: {
-        sans: ["var(--font-outfit)", "system-ui", "sans-serif"],
-        display: ["var(--font-sora)", "system-ui", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      backgroundImage: {
-        /* Um único gradiente de acento, em duas direções. Os antigos
-           `grad-red` e `grad-violet` saíram: apontavam ambos para vermelho
-           e eram resto de uma paleta que não existe mais. */
-        "grad-accent": "linear-gradient(135deg, rgb(var(--tone-accent)) 0%, rgb(var(--tone-accent-soft)) 100%)",
-        "grad-accent-rev": "linear-gradient(135deg, rgb(var(--tone-accent-soft)) 0%, rgb(var(--tone-accent)) 100%)",
       },
       keyframes: {
         "accordion-down": {
@@ -92,29 +83,23 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        drift: {
-          from: { transform: "translate3d(0, 0, 0) scale(1)" },
-          to: { transform: "translate3d(6vw, 8vh, 0) scale(1.25)" },
-        },
         bob: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-12px)" },
+          "50%": { transform: "translateY(6px)" },
         },
         "scroll-x": {
           to: { transform: "translateX(-50%)" },
         },
-        shimmer: {
-          "100%": { transform: "translateX(100%)" },
+        ping: {
+          "75%, 100%": { transform: "scale(2.4)", opacity: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        drift: "drift 24s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate",
-        bob: "bob 6s ease-in-out infinite",
-        "scroll-x": "scroll-x 34s linear infinite",
+        bob: "bob 1.8s ease-in-out infinite",
+        "scroll-x": "scroll-x 40s linear infinite",
         "spin-slow": "spin 14s linear infinite",
-        shimmer: "shimmer 2.6s ease-in-out infinite",
       },
     },
   },
