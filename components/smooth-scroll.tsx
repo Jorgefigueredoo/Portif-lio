@@ -7,6 +7,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
+/** Instância ativa do Lenis, para quem precisa rolar até um ponto exato. */
+let current: Lenis | null = null
+
+/** Rola até `target` pelo Lenis quando ele existe; senão, pelo navegador. */
+export function scrollToTarget(target: number | HTMLElement, offset = 0) {
+  if (current) {
+    current.scrollTo(target, { offset })
+    return
+  }
+  const top = typeof target === "number" ? target : target.getBoundingClientRect().top + window.scrollY
+  window.scrollTo({ top: top + offset, behavior: "smooth" })
+}
+
 /**
  * Rolagem suave global com Lenis, ligada ao GSAP.
  *
@@ -30,6 +43,7 @@ export function SmoothScroll() {
       smoothWheel: true,
       touchMultiplier: 1.6,
     })
+    current = lenis
 
     // O ScrollTrigger recalcula os gatilhos a cada quadro do Lenis.
     lenis.on("scroll", ScrollTrigger.update)
@@ -59,6 +73,7 @@ export function SmoothScroll() {
       document.removeEventListener("click", onClick)
       gsap.ticker.remove(raf)
       lenis.destroy()
+      current = null
     }
   }, [])
 
