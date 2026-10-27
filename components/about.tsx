@@ -1,87 +1,102 @@
 import type React from "react"
-import { Code2, Rocket, Building2, Quote } from "lucide-react"
+import { Code2, Rocket, Building2 } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-import { Tilt } from "@/components/tilt"
-import { SectionHeading, accentVars, type Accent } from "@/components/section-heading"
+import { SectionHeading } from "@/components/section-heading"
+
+const STATS = [
+  { value: "06", label: "projetos no portfólio" },
+  { value: "08", label: "certificações concluídas" },
+  { value: "04", label: "experiências em tecnologia" },
+  { value: "2027", label: "conclusão em ADS — Senac" },
+]
+
+const FOCUS: { Icon: typeof Code2; title: string; body: React.ReactNode }[] = [
+  {
+    Icon: Code2,
+    title: "Foco técnico",
+    body: (
+      <>
+        APIs REST, autenticação OAuth2/JWT e integração front-end/back-end. No estágio na{" "}
+        <strong className="font-medium text-ink">2D Telecom</strong> desenvolvi diagnóstico de sistemas, resolução de
+        problemas e comunicação com stakeholders.
+      </>
+    ),
+  },
+  {
+    Icon: Rocket,
+    title: "Inovação",
+    body: (
+      <>
+        No <strong className="font-medium text-ink">CampusMobile 2026</strong> evoluí soluções em um ambiente de
+        mentorias e inovação, fortalecendo minha visão de produto e desenvolvimento ágil.
+      </>
+    ),
+  },
+  {
+    Icon: Building2,
+    title: "Atuação atual",
+    body: (
+      <>
+        <strong className="font-medium text-ink">Analista de Inovação</strong> na Prefeitura do Recife, na Secretaria
+        de Planejamento e Gestão (SEPLAN), levando tecnologia para a gestão pública da cidade.
+      </>
+    ),
+  },
+]
 
 export function About() {
-  const cards: {
-    accent: Accent
-    accent2: Accent
-    Icon: typeof Code2
-    title: string
-    body: React.ReactNode
-  }[] = [
-    {
-      accent: "graphite",
-      accent2: "graphite-soft",
-      Icon: Code2,
-      title: "Foco técnico",
-      body: (
-        <>
-          Tenho foco em <strong className="font-semibold text-ink">APIs REST, autenticação OAuth2/JWT e integração front-end/back-end</strong>. Durante meu estágio na{" "}
-          <strong className="font-semibold text-ink">2D Telecom</strong>, atuei em suporte técnico, desenvolvendo
-          habilidades em resolução de problemas, diagnóstico de sistemas e comunicação eficaz com stakeholders.
-        </>
-      ),
-    },
-    {
-      accent: "accent",
-      accent2: "graphite-deep",
-      Icon: Rocket,
-      title: "Inovação",
-      body: (
-        <>
-          Em 2026 participei do <strong className="font-semibold text-tone-accent">CampusMobile 2026</strong>, onde evolui
-          soluções em um ambiente de mentorias e inovação, fortalecendo minha visão de produto e desenvolvimento ágil.
-        </>
-      ),
-    },
-    {
-      accent: "slate",
-      accent2: "graphite-soft",
-      Icon: Building2,
-      title: "Atuação atual",
-      body: (
-        <>
-          Atualmente faço parte da Prefeitura do Recife como{" "}
-          <strong className="font-semibold text-ink">Analista de Inovação</strong> na Secretaria de Planejamento e
-          Gestão (SEPLAN), contribuindo com tecnologia e inovação na gestão pública da cidade.
-        </>
-      ),
-    },
-  ]
-
   return (
-    <section id="about" className="relative py-24">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <SectionHeading tag="01 — Sobre" accent="accent" title={<>Sobre <span className="grad-text">Mim</span></>} />
+    <section id="about" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
+        <SectionHeading
+          index="01"
+          label="Sobre"
+          title={
+            <>
+              Do protótipo <span className="accent-serif">ao deploy.</span>
+            </>
+          }
+        />
 
-        {/* Parágrafo de abertura em destaque */}
-        <Reveal>
-          <div className="relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-tone-accent/[0.09] via-panel/70 to-panel/40 p-8 backdrop-blur-xl sm:p-12">
-            <Quote className="absolute right-8 top-6 h-24 w-24 text-ink/[0.06]" />
-            <p className="relative max-w-4xl text-xl font-medium leading-relaxed text-ink sm:text-2xl">
-              Desenvolvedor Full Stack com sólida formação em tecnologias modernas como Java, Spring Boot, React e
-              MySQL, com experiência prática no desenvolvimento de aplicações web completas, desde a concepção até a
-              implantação.
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          {/* Declaração de abertura */}
+          <Reveal className="lg:col-span-7">
+            <p className="text-pretty text-2xl font-medium leading-[1.35] tracking-tight text-ink sm:text-[2rem]">
+              Sou desenvolvedor Full Stack com formação em tecnologias modernas como{" "}
+              <span className="text-tone-accent">Java, Spring Boot, React e MySQL</span>, e experiência prática
+              construindo aplicações web completas — da concepção à implantação.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        {/* Cartões coloridos */}
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {cards.map(({ accent, accent2, Icon, title, body }, index) => (
-            <Reveal key={title} delay={index * 100}>
-              <Tilt strength={10}>
-                <div className="neon-card h-full p-8" style={accentVars(accent, accent2)}>
-                  <div className="neon-icon mb-6 h-14 w-14">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mb-3 font-display text-xl font-bold text-ink">{title}</h3>
-                  <p className="leading-relaxed text-ink-soft">{body}</p>
+          {/* Números */}
+          <div className="grid grid-cols-2 gap-px self-start overflow-hidden rounded-3xl border border-line bg-line lg:col-span-5">
+            {STATS.map((stat, index) => (
+              <Reveal key={stat.label} delay={index * 80} className="h-full">
+                <div className="flex h-full flex-col justify-between gap-6 bg-page p-5 sm:p-7">
+                  <span className="text-4xl font-semibold tracking-tight text-ink sm:text-5xl">{stat.value}</span>
+                  <span className="font-mono text-[11px] uppercase leading-relaxed tracking-[0.14em] text-ink-dim">
+                    {stat.label}
+                  </span>
                 </div>
-              </Tilt>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* Três frentes */}
+        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-3 sm:mt-20">
+          {FOCUS.map(({ Icon, title, body }, index) => (
+            <Reveal key={title} delay={index * 100} className="h-full">
+              <div className="group h-full bg-page p-7 transition-colors duration-500 hover:bg-panel sm:p-9">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-line text-ink transition-colors duration-500 group-hover:border-tone-accent/60 group-hover:text-tone-accent">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="font-mono text-[11px] text-ink-dim">0{index + 1}</span>
+                </div>
+                <h3 className="mt-10 text-xl font-semibold text-ink">{title}</h3>
+                <p className="mt-3 leading-relaxed text-ink-soft">{body}</p>
+              </div>
             </Reveal>
           ))}
         </div>
